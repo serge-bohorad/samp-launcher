@@ -1,5 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'mobx-react'
+
+import { store } from './stores'
 
 import { LayoutMain } from './layouts/main'
 
@@ -9,4 +12,9 @@ const App: FunctionComponent = () => {
   return <LayoutMain />
 }
 
-render(<App />, document.getElementById('root'))
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
