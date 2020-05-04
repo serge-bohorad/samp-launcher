@@ -1,0 +1,20 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background-color: $color-third-dark;
+}
+
+.nickname {
+  margin-left: 12px;
+}
+
+.control-box {
+  margin-left: 12px;
+}
+
+.search-server {
+  margin: 0 12px 0 auto;
+}

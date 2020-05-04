@@ -1,0 +1,32 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.button {
+  width: 55px;
+
+  &:first-of-type {
+    border-left: 1px solid $color-third-light;
+  }
+
+  & > svg {
+    width: 18px;
+    fill: $color-second;
+  }
+}
+
+.button-connect > svg {
+  fill: #29a72c;
+}
+
+.button-delete > svg {
+  width: 15px;
+  fill: #dd2828;
+}
+
+.button-edit-address {
+  border-right: 1px solid $color-third-light;
+}
