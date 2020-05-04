@@ -1,7 +1,9 @@
+@import '@app/assets/scss/colors.scss';
+
 .container {
   display: flex;
   height: 26px;
-  background-color: #252525;
+  background-color: $color-third;
 }
 
 .movable-region {
