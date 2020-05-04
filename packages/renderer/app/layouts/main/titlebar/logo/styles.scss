@@ -1,3 +1,5 @@
+@import '@app/assets/scss/colors.scss';
+
 .container {
   display: flex;
   align-items: center;
@@ -9,7 +11,7 @@
 
 .text {
   margin-left: 10px;
-  color: #e6e6e6;
+  color: $color-fourth;
   font: 11px 'GilroyMedium';
   user-select: none;
 }
