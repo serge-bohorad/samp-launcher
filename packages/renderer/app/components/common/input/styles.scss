@@ -1,0 +1,42 @@
+@import '@app/assets/scss/colors.scss';
+
+.input {
+  padding: 0 8px;
+  width: 200px;
+  line-height: 30px !important;
+  font: 14px 'MyriadProRegular';
+  background-color: $color-third;
+  color: $color-fourth;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  outline: none;
+  transition: border 0.2s ease;
+
+  &:disabled {
+    background-color: $color-disabled;
+
+    &,
+    &::placeholder {
+      color: $color-fourth-dark;
+    }
+  }
+
+  &[type='password']:not(:placeholder-shown) {
+    font-size: 20px;
+  }
+
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    appearance: none;
+  }
+
+  &::placeholder {
+    font-size: 13px;
+    color: #a1a1a1;
+    user-select: none;
+  }
+}
+
+.invalid {
+  border-color: $color-error;
+}

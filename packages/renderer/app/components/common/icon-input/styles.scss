@@ -1,0 +1,24 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input {
+  padding-right: 30px;
+  width: inherit;
+  height: inherit;
+}
+
+.icon {
+  position: absolute;
+  right: 8px;
+  width: 12px;
+  fill: $color-main;
+}
+
+.disabled-icon {
+  fill: $color-fourth-dark !important;
+}
