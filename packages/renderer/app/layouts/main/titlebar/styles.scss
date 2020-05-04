@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  height: 26px;
+  background-color: #252525;
+}
+
+.movable-region {
+  -webkit-app-region: drag;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 12px;
+}

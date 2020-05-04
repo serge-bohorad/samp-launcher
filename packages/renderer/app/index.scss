@@ -1,0 +1,22 @@
+@import './assets/scss/normalize.scss';
+@import './assets/scss/fonts.scss';
+
+::-webkit-scrollbar {
+  width: 8px;
+
+  &-track {
+    background-color: rgba(0, 0, 0, 0.07);
+  }
+
+  &-thumb {
+    background-color: rgba(0, 0, 0, 0.12);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}

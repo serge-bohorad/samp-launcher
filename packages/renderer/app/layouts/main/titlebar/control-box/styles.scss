@@ -1,0 +1,22 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  // background-color: #333;
+}
+
+.button {
+  width: 30px;
+  height: 100%;
+
+  & > svg {
+    width: 9px;
+    fill: #fff;
+  }
+}
+
+.button-close {
+  &:hover {
+    background-color: #ff0000;
+  }
+}

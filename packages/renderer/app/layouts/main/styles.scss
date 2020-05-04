@@ -1,0 +1,12 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page {
+  flex: 1;
+  background-color: $color-third-dark;
+}

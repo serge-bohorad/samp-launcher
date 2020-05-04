@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 11px;
+}
+
+.text {
+  margin-left: 10px;
+  color: #e6e6e6;
+  font: 11px 'GilroyMedium';
+  user-select: none;
+}
