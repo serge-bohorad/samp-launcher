@@ -36,7 +36,7 @@ export namespace EventManager {
   )
 
   ipcMain.on(
-    'REQUEST_SIMPLY',
+    'REQUEST_UNILATERALLY',
     async (_, eventName, payload): Promise<any> => {
       try {
         const handler = eventsHandlers[eventName]
