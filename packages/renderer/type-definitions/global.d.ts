@@ -15,9 +15,12 @@ declare namespace NodeJS {
       event: E,
       payload?: MainEventsPayload[E]
     ) => Promise<[null | MainEventsReturns[E], string | null]>
-    invokeMainSimply: <E extends keyof MainEvents>(event: E, payload?: MainEventsPayload[E]) => void
+    invokeMainUnilaterally: <E extends keyof MainEvents>(
+      event: E,
+      payload?: MainEventsPayload[E]
+    ) => void
   }
 }
 
 declare const invokeMain: NodeJS.Global['invokeMain']
-declare const invokeMainSimply: NodeJS.Global['invokeMainSimply']
+declare const invokeMainUnilaterally: NodeJS.Global['invokeMainUnilaterally']
