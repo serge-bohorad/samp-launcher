@@ -27,7 +27,8 @@
     "import/no-cycle": "error",
 
     "react/prop-types": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react-hooks/exhaustive-deps": "off"
   },
   "settings": {
     "react": {
