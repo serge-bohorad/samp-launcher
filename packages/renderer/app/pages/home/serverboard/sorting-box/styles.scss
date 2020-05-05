@@ -2,10 +2,6 @@
 
 .container {
   display: flex;
-
-  & > * {
-    border-right: 1px solid $color-third-light;
-  }
 }
 
 .button-hostname {
