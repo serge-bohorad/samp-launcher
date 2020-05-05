@@ -1,0 +1,64 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: $color-fourth;
+  background-color: $color-third-dark;
+  border-bottom: 1px solid $color-third-light;
+  font: 14px 'GilroyRegular';
+  user-select: none;
+
+  &:last-of-type {
+    border: none;
+  }
+}
+
+.selected {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.padlock {
+  display: block;
+  margin-left: 12px;
+  width: 14px;
+  fill: #29a72c;
+}
+
+.locked-padlock {
+  fill: #dd2828;
+}
+
+.column {
+  margin-left: 5px;
+  padding-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hostname {
+  margin-left: 14px;
+  width: 310px;
+}
+
+.players {
+  width: 95px;
+}
+
+.ping {
+  width: 55px;
+}
+
+.mode {
+  width: 155px;
+}
+
+.language {
+  width: 135px;
+}
+
+.map {
+  width: 320px;
+}
