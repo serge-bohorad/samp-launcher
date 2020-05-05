@@ -1,0 +1,7 @@
+@import '@app/assets/scss/colors.scss';
+
+.link {
+  color: $color-main;
+  text-decoration: underline;
+  cursor: pointer;
+}

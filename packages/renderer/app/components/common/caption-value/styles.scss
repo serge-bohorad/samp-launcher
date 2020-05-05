@@ -1,0 +1,22 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  font: 16px 'MyriadProRegular';
+}
+
+.caption {
+  color: $color-fifth;
+  font-size: 14px;
+  user-select: none;
+}
+
+.value {
+  color: $color-fourth;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.unselected {
+  user-select: none;
+}

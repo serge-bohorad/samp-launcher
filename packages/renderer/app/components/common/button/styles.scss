@@ -1,0 +1,19 @@
+@import '@app/assets/scss/colors.scss';
+
+.button {
+  width: 150px;
+  height: 30px;
+  background-color: $color-main;
+  color: #fff;
+  border-radius: 3px;
+  font: 14px 'MyriadProRegular';
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  outline: none;
+
+  &:disabled {
+    background-color: $color-disabled;
+    color: $color-fourth-dark;
+  }
+}
