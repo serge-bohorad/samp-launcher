@@ -1,0 +1,12 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  color: $color-fourth-dark;
+  background-color: $color-third;
+  font: 16px 'GilroyRegular';
+  user-select: none;
+}

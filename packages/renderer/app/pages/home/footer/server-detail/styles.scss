@@ -1,0 +1,33 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  min-width: 30%;
+  border-right: 1px solid $color-third-light;
+}
+
+.address-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.address {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.button-copy-address {
+  margin-left: 8px;
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 4px;
+
+  & svg {
+    width: 14px;
+    fill: $color-second;
+  }
+}
+
+.detail {
+  margin-top: 6px;
+}

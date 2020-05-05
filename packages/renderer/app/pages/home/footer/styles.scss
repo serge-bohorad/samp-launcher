@@ -1,0 +1,21 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 210px;
+  background-color: $color-third-dark;
+  font: 14px 'MyriadProRegular';
+}
+
+.body {
+  display: flex;
+}
+
+.section {
+  padding: 8px 12px;
+}
+
+.server-stats {
+  flex: 1;
+}

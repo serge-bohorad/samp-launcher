@@ -1,0 +1,29 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+}
+
+.button {
+  margin-left: 5px;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  & svg {
+    width: 20px;
+    fill: $color-fifth;
+  }
+}
+
+.button-create svg {
+  fill: #29a72c;
+}
+
+.button-delete svg {
+  fill: #dd2828;
+}
