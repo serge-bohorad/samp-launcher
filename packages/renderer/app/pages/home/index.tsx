@@ -4,6 +4,7 @@ import cn from 'classnames'
 import { Props } from './types'
 
 import { Dashboard } from './dashboard'
+import { Serverboard } from './serverboard'
 
 import styles from './styles.scss'
 
@@ -13,6 +14,7 @@ export const PageHome: FunctionComponent<Props> = (props) => {
   return (
     <div className={cn(styles.container, className)}>
       <Dashboard />
+      <Serverboard className={styles.serverboard} />
     </div>
   )
 }

@@ -1,0 +1,34 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+
+  & > * {
+    border-right: 1px solid $color-third-light;
+  }
+}
+
+.button-hostname {
+  min-width: 350px;
+}
+
+.button-players {
+  min-width: 100px;
+}
+
+.button-ping {
+  min-width: 60px;
+}
+
+.button-mode {
+  min-width: 160px;
+}
+
+.button-language {
+  min-width: 140px;
+}
+
+.button-map {
+  width: 100%;
+  border: none;
+}

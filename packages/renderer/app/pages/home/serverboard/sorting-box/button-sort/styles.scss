@@ -1,0 +1,15 @@
+@import '@app/assets/scss/colors.scss';
+
+.button {
+  padding-left: 10px;
+  text-align: left;
+  color: $color-fourth-dark;
+  background-color: $color-third !important;
+  border-radius: 0;
+  transition: 0.2s ease;
+
+  &:hover {
+    transition: 0;
+    background-color: $color-third-light !important;
+  }
+}
