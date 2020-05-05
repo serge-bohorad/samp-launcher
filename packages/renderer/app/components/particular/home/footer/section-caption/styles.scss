@@ -1,0 +1,8 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  text-align: center;
+  color: $color-fourth-dark;
+  font: 13px 'GilroyRegular';
+  user-select: none;
+}
