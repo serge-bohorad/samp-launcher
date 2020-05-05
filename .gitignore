@@ -89,5 +89,5 @@ lerna-debug.log
 Thumbs.db
 
 # Other
-database
+/database
 *.scss.d.ts
