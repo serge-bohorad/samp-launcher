@@ -5,18 +5,18 @@
   width: 8px;
 
   &-track {
-    background-color: rgba(0, 0, 0, 0.07);
+    background-color: #464850;
   }
 
   &-thumb {
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: #6a6b73;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.15);
+      background-color: #73757d;
     }
 
     &:active {
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: #7c7e87;
     }
   }
 }
