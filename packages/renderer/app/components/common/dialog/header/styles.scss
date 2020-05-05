@@ -1,0 +1,25 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px 15px 15px;
+}
+
+.caption {
+  color: $color-fourth;
+  font: 18px 'GilroyRegular';
+  user-select: none;
+}
+
+.button {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+
+  & svg {
+    width: 14px;
+    fill: #fff;
+  }
+}

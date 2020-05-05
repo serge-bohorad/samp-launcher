@@ -1,0 +1,16 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.button {
+  width: 95px;
+  height: 28px;
+}

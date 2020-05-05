@@ -1,0 +1,39 @@
+@import '@app/assets/scss/keyframes.scss';
+@import '@app/assets/scss/colors.scss';
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  background-color: $color-third;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  animation: smooth-scale 0.3s;
+}
+
+.body {
+  flex: 1 1 auto;
+  overflow: hidden auto;
+  color: $color-fourth;
+  background-color: $color-third-dark;
+  font: 14px 'MyriadProRegular';
+}
+
+.concave {
+  padding: 15px;
+}
+
+.dimming {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
