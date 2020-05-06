@@ -4,7 +4,7 @@ import { Group, Server } from './app/database/entities'
 
 const { NODE_ENV } = process.env
 
-export const config: ConnectionOptions = {
+const config: ConnectionOptions = {
   type: 'sqlite',
   database: 'database/main.sqlite',
   synchronize: NODE_ENV === 'development',
@@ -16,4 +16,4 @@ export const config: ConnectionOptions = {
   }
 }
 
-module.exports = config
+export = config
