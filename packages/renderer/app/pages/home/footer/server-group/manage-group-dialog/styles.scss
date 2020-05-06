@@ -1,0 +1,20 @@
+.container {
+  width: 360px;
+}
+
+.body {
+  overflow: hidden;
+
+  &:hover {
+    overflow-y: auto;
+  }
+}
+
+.hint-empty {
+  text-align: center;
+  font-size: 18px;
+}
+
+.filled {
+  height: 280px;
+}

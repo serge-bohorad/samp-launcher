@@ -10,15 +10,19 @@ import { SectionCaption } from '@app/components/particular/home/footer/section-c
 import { ControlBox } from './control-box'
 import { CreateGroupDialog } from './create-group-dialog'
 import { DeleteGroupConfirmDialog } from './delete-group-confirm-dialog'
+import { ManageGroupDialog } from './manage-group-dialog'
 
 import styles from './styles.scss'
 
 const ServerGroupComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
-  const { selectedGroup, createGroupDialogShown, deleteGroupConfirmDialogShown } = useSelector(
-    ({ group }) => group
-  )
+  const {
+    selectedGroup,
+    createGroupDialogShown,
+    manageGroupDialogShown,
+    deleteGroupConfirmDialogShown
+  } = useSelector(({ group }) => group)
 
   const selectedGroupName = selectedGroup?.name || 'No selected group'
 
@@ -30,6 +34,7 @@ const ServerGroupComponent: FunctionComponent<Props> = (props) => {
 
       {createGroupDialogShown && <CreateGroupDialog />}
       {deleteGroupConfirmDialogShown && <DeleteGroupConfirmDialog />}
+      {manageGroupDialogShown && <ManageGroupDialog />}
     </div>
   )
 }

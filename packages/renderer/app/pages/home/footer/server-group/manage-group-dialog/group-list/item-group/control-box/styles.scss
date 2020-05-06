@@ -1,0 +1,24 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  height: 100%; // TODO:
+}
+
+.button {
+  width: 30px;
+  height: 100%;
+
+  &:hover svg {
+    fill: #fff;
+  }
+
+  & svg {
+    width: 12px;
+    fill: $color-fourth-dark;
+  }
+}
+
+.button-delete svg {
+  fill: #ff0000; // TODO: replace color with varialbe
+}
