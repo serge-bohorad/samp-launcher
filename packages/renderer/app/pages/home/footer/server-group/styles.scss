@@ -5,9 +5,14 @@
 }
 
 .selected-group {
-  margin-top: 6px;
+  text-align: center;
+  font: 18px 'GilroyMedium';
+  margin-top: 10px;
+  color: #fff;
+  user-select: none;
 }
 
 .control-box {
-  margin-top: 6px;
+  width: max-content;
+  margin: 10px auto 0 auto;
 }
