@@ -22,7 +22,8 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
     selectedGroup,
     setCreateGroupDialogShown,
     setDeleteGroupConfirmDialogShown,
-    setManageGroupDialogShown
+    setManageGroupDialogShown,
+    setRenameGroupDialogShown
   } = useSelector(({ group }) => group)
 
   const onClickCreate = useCallback(() => {
@@ -42,8 +43,12 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
   }, [])
 
   const onClickEditName = useCallback(() => {
-    //
-  }, [])
+    if (!selectedGroup) {
+      return
+    }
+
+    setRenameGroupDialogShown(true)
+  }, [selectedGroup])
 
   return (
     <div className={cn(styles.container, className)}>

@@ -11,6 +11,7 @@ import { ControlBox } from './control-box'
 import { CreateGroupDialog } from './create-group-dialog'
 import { DeleteGroupConfirmDialog } from './delete-group-confirm-dialog'
 import { ManageGroupDialog } from './manage-group-dialog'
+import { RenameGroupDialog } from './rename-group-dialog'
 
 import styles from './styles.scss'
 
@@ -20,8 +21,9 @@ const ServerGroupComponent: FunctionComponent<Props> = (props) => {
   const {
     selectedGroup,
     createGroupDialogShown,
+    deleteGroupConfirmDialogShown,
     manageGroupDialogShown,
-    deleteGroupConfirmDialogShown
+    renameGroupDialogShown
   } = useSelector(({ group }) => group)
 
   const selectedGroupName = selectedGroup?.name || 'No selected group'
@@ -35,6 +37,7 @@ const ServerGroupComponent: FunctionComponent<Props> = (props) => {
       {createGroupDialogShown && <CreateGroupDialog />}
       {deleteGroupConfirmDialogShown && <DeleteGroupConfirmDialog />}
       {manageGroupDialogShown && <ManageGroupDialog />}
+      {renameGroupDialogShown && <RenameGroupDialog />}
     </div>
   )
 }

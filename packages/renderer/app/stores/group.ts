@@ -8,9 +8,9 @@ export class GroupStore {
   @observable subjectGroup: Group | undefined // The group that under renaming or deleting
 
   @observable createGroupDialogShown = false
+  @observable deleteGroupConfirmDialogShown = false
   @observable manageGroupDialogShown = false
   @observable renameGroupDialogShown = false
-  @observable deleteGroupConfirmDialogShown = false
 
   @action setGroups = (groups: Group[]): void => {
     this.groups.replace(groups)
@@ -28,12 +28,12 @@ export class GroupStore {
     this.createGroupDialogShown = shown
   }
 
-  @action setManageGroupDialogShown = (shown: boolean): void => {
-    this.manageGroupDialogShown = shown
-  }
-
   @action setDeleteGroupConfirmDialogShown = (shown: boolean): void => {
     this.deleteGroupConfirmDialogShown = shown
+  }
+
+  @action setManageGroupDialogShown = (shown: boolean): void => {
+    this.manageGroupDialogShown = shown
   }
 
   @action setRenameGroupDialogShown = (shown: boolean): void => {
