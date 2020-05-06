@@ -1,11 +1,26 @@
+import { Group } from '../../../entities/group'
+import { RenamingPayload } from '../payloads/group'
+
 export interface GroupEvents {
-  foo
+  GROUP_FETCH
+  GROUP_CREATE
+  GROUP_DELETE
+  GROUP_RENAME
+  GROUP_SWITCH_SELECTED
 }
 
 export interface GroupEventsPayload {
-  foo
+  GROUP_FETCH
+  GROUP_CREATE: string
+  GROUP_DELETE: number
+  GROUP_RENAME: RenamingPayload
+  GROUP_SWITCH_SELECTED: number
 }
 
 export interface GroupEventsReturns {
-  foo
+  GROUP_FETCH: Group[]
+  GROUP_CREATE: Group
+  GROUP_DELETE
+  GROUP_RENAME
+  GROUP_SWITCH_SELECTED
 }
