@@ -18,7 +18,9 @@
     "migration:revert": "npm run typeorm:cli -- migration:revert",
     "database:drop": "npm run typeorm:cli -- schema:drop",
     "tmp:g": "node scripts/tmp-generator",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "electron:rebuild": "electron-rebuild -f -v 8.2.5 -a ia32",
+    "postinstall": "npm-run-all electron:rebuild"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
