@@ -18,15 +18,23 @@ import IconEditName from '@app/assets/icons/pencil-square.svg'
 const ControlBoxComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
-  const { setCreateGroupDialogShown } = useSelector(({ group }) => group)
+  const {
+    selectedGroup,
+    setCreateGroupDialogShown,
+    setDeleteGroupConfirmDialogShown
+  } = useSelector(({ group }) => group)
 
   const onClickCreate = useCallback(() => {
     setCreateGroupDialogShown(true)
   }, [])
 
   const onClickDelete = useCallback(() => {
-    //
-  }, [])
+    if (!selectedGroup) {
+      return
+    }
+
+    setDeleteGroupConfirmDialogShown(true)
+  }, [selectedGroup])
 
   const onClickManage = useCallback(() => {
     //

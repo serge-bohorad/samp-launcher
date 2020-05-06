@@ -9,13 +9,16 @@ import { useSelector } from '@app/hooks/common'
 import { SectionCaption } from '@app/components/particular/home/footer/section-caption'
 import { ControlBox } from './control-box'
 import { CreateGroupDialog } from './create-group-dialog'
+import { DeleteGroupConfirmDialog } from './delete-group-confirm-dialog'
 
 import styles from './styles.scss'
 
 const ServerGroupComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
-  const { selectedGroup, createGroupDialogShown } = useSelector(({ group }) => group)
+  const { selectedGroup, createGroupDialogShown, deleteGroupConfirmDialogShown } = useSelector(
+    ({ group }) => group
+  )
 
   const selectedGroupName = selectedGroup?.name || 'No selected group'
 
@@ -26,6 +29,7 @@ const ServerGroupComponent: FunctionComponent<Props> = (props) => {
       <ControlBox className={styles.controlBox} />
 
       {createGroupDialogShown && <CreateGroupDialog />}
+      {deleteGroupConfirmDialogShown && <DeleteGroupConfirmDialog />}
     </div>
   )
 }
