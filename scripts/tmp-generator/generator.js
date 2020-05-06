@@ -18,7 +18,7 @@ function generate(name) {
   const path = join(pathApp, name)
 
   if (fs.existsSync(path)) {
-    log.warning(`Directory '${path}' is already exist!`)
+    log.warning(`Directory '${path}' is already exists!`)
     return
   }
 

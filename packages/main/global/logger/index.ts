@@ -7,7 +7,7 @@ const moment = momentjs()
 
 class Logger implements LoggerConstructor {
   constructor() {
-    if (!this.isLogDirectoryExist()) {
+    if (!this.isLogDirectoryExists()) {
       this.createLogDirectory()
     }
   }
@@ -46,7 +46,7 @@ class Logger implements LoggerConstructor {
     return moment.utcOffset('Europe/Moscow').format('DD-MM-YYYY HH:MM:SS')
   }
 
-  private isLogDirectoryExist = (): boolean => {
+  private isLogDirectoryExists = (): boolean => {
     return fs.existsSync(directoryPath)
   }
 
