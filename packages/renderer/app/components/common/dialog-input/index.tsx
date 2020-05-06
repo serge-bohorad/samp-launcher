@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useRef, useState, useCallback, useEffect } from 'react'
+import cn from 'classnames'
 
 import { Props } from './types'
 
@@ -53,7 +54,7 @@ export const DialogInput: FunctionComponent<Props> = (props) => {
 
   return (
     <Dialog
-      className={className}
+      className={cn(styles.container, className)}
       closable={closable}
       disabled={disabled}
       dimming={dimming}

@@ -1,0 +1,46 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.content {
+  margin-left: 10px;
+  color: $color-fourth;
+  font: 14px 'MyriadProRegular';
+  user-select: none;
+}
+
+.label {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: $color-third;
+  border-radius: 3px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 7px;
+    width: 11px;
+    height: 5px;
+    border-left: 3px solid $color-main;
+    border-bottom: 3px solid $color-main;
+    transform: rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+.checked {
+  &:before {
+    opacity: 1;
+  }
+}
+
+.checkbox {
+  display: none;
+}
