@@ -28,8 +28,9 @@ export function useKeyPressEffect<K extends keyof KeyNames>(
   const onKeyUp = useCallback(
     (event) => {
       if (pressed && keys.includes(event.key)) {
-        handler(event.key as K, event)
         setPressed(false)
+
+        handler(event.key as K, event)
       }
     },
     [pressed, handler]
