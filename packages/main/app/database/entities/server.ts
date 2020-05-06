@@ -34,7 +34,7 @@ export class Server {
   password: string
 
   @Column({ type: 'simple-json' })
-  extraInject: string[]
+  extraInject: Pair<string>[]
 
   @ManyToOne(() => Group, (group) => group.servers, { onDelete: 'CASCADE' })
   group: Group
