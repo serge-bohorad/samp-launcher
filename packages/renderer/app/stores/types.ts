@@ -1,3 +1,5 @@
+import { GroupStore } from './group'
+
 export interface Store {
-  dashboard
+  group: GroupStore
 }
