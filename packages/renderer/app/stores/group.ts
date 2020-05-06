@@ -10,6 +10,7 @@ export class GroupStore {
   @observable createGroupDialogShown = false
   @observable manageGroupDialogShown = false
   @observable renameGroupDialogShown = false
+  @observable deleteGroupConfirmDialogShown = false
 
   @action setGroups = (groups: Group[]): void => {
     this.groups.replace(groups)
@@ -31,6 +32,10 @@ export class GroupStore {
     this.manageGroupDialogShown = shown
   }
 
+  @action setDeleteGroupConfirmDialogShown = (shown: boolean): void => {
+    this.deleteGroupConfirmDialogShown = shown
+  }
+
   @action setRenameGroupDialogShown = (shown: boolean): void => {
     this.renameGroupDialogShown = shown
   }
@@ -44,7 +49,9 @@ export class GroupStore {
   @action deleteGroup = (targetGroup: Group): void => {
     this.groups.remove(targetGroup)
 
-    this.setSelectedGroup(this.groups[0])
+    if (this.isSelectedGroup(targetGroup)) {
+      this.setSelectedGroup(this.groups[0])
+    }
   }
 
   @action renameGroup = (targetGroup: Group, name: string): void => {
