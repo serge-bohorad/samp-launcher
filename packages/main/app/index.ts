@@ -1,5 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 
+import { createDatabaseConnection } from './database'
+
 import './core/events'
 
 export const windowWidth = 1152
@@ -8,13 +10,18 @@ export const pathTemplate = './dist/index.html'
 
 let mainWindow: BrowserWindow | null
 
+app.allowRendererProcessReuse = true
+
 app.on('ready', async () => {
+  await setupDatabase()
   await createWindow()
   await setupWindow()
   setEventHooks()
 })
 
-app.allowRendererProcessReuse = true
+async function setupDatabase(): Promise<void> {
+  await createDatabaseConnection()
+}
 
 async function createWindow(): Promise<void> {
   mainWindow = new BrowserWindow({
