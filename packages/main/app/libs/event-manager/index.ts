@@ -14,7 +14,7 @@ export namespace EventManager {
     delete eventsHandlers[event]
   }
 
-  ipcMain.on(
+  ipcMain.handle(
     'REQUEST_DEFFERED',
     async (_, eventName, payload): Promise<any> => {
       try {
