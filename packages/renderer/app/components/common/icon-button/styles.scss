@@ -13,3 +13,11 @@
     background-color: $color-third-light;
   }
 }
+
+.disabled {
+  pointer-events: none;
+
+  & svg {
+    fill: $color-disabled !important;
+  }
+}
