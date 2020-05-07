@@ -1,6 +1,7 @@
-import { observable, action } from 'mobx'
+/* eslint-disable import/named */
+import { IObservableArray, observable, action } from 'mobx'
 
-import { Group } from '@shared/types/entities/group'
+import { Group, Server } from '@shared/types/entities'
 
 export class GroupStore {
   readonly groups = observable<Group>([])
@@ -56,6 +57,10 @@ export class GroupStore {
 
   @action renameGroup = (targetGroup: Group, name: string): void => {
     targetGroup.name = name
+  }
+
+  @action setGroupServers = (servers: Server[], targetGroup = this.getSelectedGroup()): void => {
+    ;(targetGroup!.servers as IObservableArray).replace(servers)
   }
 
   getGroups = (): Group[] => {
