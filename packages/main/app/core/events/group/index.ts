@@ -12,6 +12,8 @@ EventManager.add('GROUP_CREATE', async (groupName) => {
 
   const group = await Models.Group.add(groupName)
 
+  group.servers = []
+
   return [group, null]
 })
 

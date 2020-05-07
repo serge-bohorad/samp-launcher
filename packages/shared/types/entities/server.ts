@@ -6,7 +6,7 @@ export interface Server extends ServerInfo {
   description: string
   nickname: string
   password: string
-  extraInject: Pair<string>[]
+  extraInject: string[] | Pair<string>[]
 }
 
 export interface ServerInfo {

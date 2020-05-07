@@ -5,3 +5,7 @@ export function minimizeWindow(): void {
 export function closeWindow(): void {
   invokeMainUnilaterally('WINDOW_CLOSE')
 }
+
+export function copyToClipboard(data: string | number): void {
+  invokeMainUnilaterally('COPY_TO_CLIPBOARD', data)
+}

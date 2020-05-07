@@ -1,11 +1,9 @@
 import { CSSProperties } from 'react'
 
-import { Server } from '@shared/types/entities/server'
+import { Server } from '@shared/types/entities'
 
 export interface Props {
   className?: string
-  selected: boolean
   server: Server
   style: CSSProperties
-  onClick: (server: Server) => any
 }

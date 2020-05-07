@@ -31,24 +31,16 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
   }, [])
 
   const onClickDelete = useCallback(() => {
-    if (!selectedGroup) {
-      return
-    }
-
     setDeleteGroupConfirmDialogShown(true)
-  }, [selectedGroup])
+  }, [])
 
   const onClickManage = useCallback(() => {
     setManageGroupDialogShown(true)
   }, [])
 
   const onClickEditName = useCallback(() => {
-    if (!selectedGroup) {
-      return
-    }
-
     setRenameGroupDialogShown(true)
-  }, [selectedGroup])
+  }, [])
 
   return (
     <div className={cn(styles.container, className)}>
@@ -59,11 +51,17 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
       />
       <IconButton
         className={cn(styles.button, styles.buttonDelete)}
+        disabled={!selectedGroup}
         icon={IconDelete}
         onClick={onClickDelete}
       />
       <IconButton className={styles.button} icon={IconManage} onClick={onClickManage} />
-      <IconButton className={styles.button} icon={IconEditName} onClick={onClickEditName} />
+      <IconButton
+        className={styles.button}
+        disabled={!selectedGroup}
+        icon={IconEditName}
+        onClick={onClickEditName}
+      />
     </div>
   )
 }

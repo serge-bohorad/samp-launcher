@@ -9,6 +9,10 @@ export namespace Group {
     return Database.Group.getAll()
   }
 
+  export function getById(id: number): Promise<EntityGroup | undefined> {
+    return Database.Group.getById(id)
+  }
+
   export async function add(groupName: string): Promise<EntityGroup> {
     const group = Database.Group.create(groupName)
 
@@ -17,12 +21,12 @@ export namespace Group {
     return group
   }
 
-  export function deleteById(groupId: number): Promise<DeleteResult> {
-    return Database.Group.deleteById(groupId)
+  export function deleteById(id: number): Promise<DeleteResult> {
+    return Database.Group.deleteById(id)
   }
 
-  export function rename(groupId: number, name: string): Promise<UpdateResult> {
-    return Database.Group.rename(groupId, name)
+  export function rename(id: number, name: string): Promise<UpdateResult> {
+    return Database.Group.rename(id, name)
   }
 
   export function unsetSelected(): Promise<UpdateResult> {

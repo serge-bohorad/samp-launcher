@@ -1,3 +1,5 @@
+import { Group } from '@shared/types/entities'
+
 import { regexpGroupName, errorGroupNameInvalid, errorGroupAlreadyExists } from './data'
 
 import {
@@ -11,7 +13,6 @@ import {
   renameGroup,
   isSelectedGroup
 } from '@app/stores/group'
-import { Group } from '@shared/types/entities/group'
 
 // Gets groups from the main process and puts them in the store
 export async function onFetchGroups(): Promise<void> {
@@ -40,11 +41,7 @@ export async function onCreateGroup(groupName: string): Promise<string | void> {
     return errorGroupAlreadyExists
   }
 
-  const [newGroup, error] = await invokeMain('GROUP_CREATE', groupName)
-
-  if (error) {
-    return error
-  }
+  const [newGroup] = await invokeMain('GROUP_CREATE', groupName)
 
   addGroup(newGroup!)
 }

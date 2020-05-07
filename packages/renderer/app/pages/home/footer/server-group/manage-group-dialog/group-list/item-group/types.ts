@@ -1,4 +1,4 @@
-import { Group } from '@shared/types/entities/group'
+import { Group } from '@shared/types/entities'
 
 export interface Props {
   className?: string

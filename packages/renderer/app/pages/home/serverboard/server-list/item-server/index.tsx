@@ -1,15 +1,20 @@
 import React, { FunctionComponent, useCallback } from 'react'
+import { observer } from 'mobx-react'
 import cn from 'classnames'
 
 import { Props } from './types'
+
+import { useSelector } from '@app/hooks/common'
 
 import styles from './styles.scss'
 
 import IconUnlockedPadlock from '@app/assets/icons/padlock-unlocked.svg'
 import IconLockedPadlock from '@app/assets/icons/padlock-locked.svg'
 
-export const ItemServer: FunctionComponent<Props> = (props) => {
-  const { className, selected, style, server, onClick } = props
+const ItemServerComponent: FunctionComponent<Props> = (props) => {
+  const { className, style, server } = props
+
+  const { setSelectedServer, isSelectedServer } = useSelector(({ server }) => server)
 
   const {
     locked,
@@ -19,14 +24,14 @@ export const ItemServer: FunctionComponent<Props> = (props) => {
     hostname,
     players = 0,
     maxPlayers = 0,
-    ping = '-',
+    ping = 0,
     mode = '-',
     language = '-',
     map = '-'
   } = server
 
-  const clickHandler = useCallback(() => {
-    onClick(server)
+  const onClickSelectServer = useCallback(() => {
+    setSelectedServer(server)
   }, [server])
 
   const PadlockIcon = locked ? IconLockedPadlock : IconUnlockedPadlock
@@ -36,9 +41,9 @@ export const ItemServer: FunctionComponent<Props> = (props) => {
 
   return (
     <div
-      className={cn(styles.container, { [styles.selected]: selected }, className)}
+      className={cn(styles.container, { [styles.selected]: isSelectedServer(server) }, className)}
       style={style}
-      onMouseUp={clickHandler}
+      onMouseUp={onClickSelectServer}
     >
       <PadlockIcon className={cn(styles.padlock, { [styles.lockedPadlock]: locked })} />
       <div className={cn(styles.column, styles.hostname)} title={hostnameText}>
@@ -52,3 +57,5 @@ export const ItemServer: FunctionComponent<Props> = (props) => {
     </div>
   )
 }
+
+export const ItemServer = observer(ItemServerComponent)

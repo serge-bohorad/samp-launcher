@@ -1,5 +1,5 @@
-import { Group } from '../../../entities/group'
 import { RenamingPayload } from '../payloads/group'
+import { Group } from '../../../entities'
 
 export interface GroupEvents {
   GROUP_FETCH

@@ -13,6 +13,14 @@ export namespace Group {
       .getMany()
   }
 
+  export function getById(id: number): Promise<EntityGroup | undefined> {
+    return getRepository(EntityGroup)
+      .createQueryBuilder()
+      .select()
+      .where('id = :id', { id })
+      .getOne()
+  }
+
   export function create(groupName: string): EntityGroup {
     return new EntityGroup(groupName)
   }
