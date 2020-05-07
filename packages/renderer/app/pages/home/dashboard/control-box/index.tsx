@@ -20,10 +20,8 @@ import RefreshAllServersIcon from '@app/assets/icons/refresh2.svg'
 import CopyServerInfoIcon from '@app/assets/icons/copy.svg'
 import CloneServerIcon from '@app/assets/icons/copy2.svg'
 import EditServerAddressIcon from '@app/assets/icons/geolocation.svg'
-import ExtraInjectIcon from '@app/assets/icons/add-document.svg'
 import SettingsIcon from '@app/assets/icons/settings.svg'
 
-// TODO: disable buttons when servers is empty
 const ControlBoxComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
@@ -66,10 +64,6 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
 
   const onClickEditServerAddress = useCallback(() => {
     setEditServerAddressDialogShown(true)
-  }, [])
-
-  const onClickManageExtraInject = useCallback(() => {
-    //
   }, [])
 
   const onClickShowSettings = useCallback(() => {
@@ -132,12 +126,6 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
         disabled={!selectedServer}
         icon={EditServerAddressIcon}
         onClick={onClickEditServerAddress}
-      />
-      <IconButton
-        className={styles.button}
-        title="Manage shared extra inject"
-        icon={ExtraInjectIcon}
-        onClick={onClickManageExtraInject}
       />
       <IconButton
         className={styles.button}
