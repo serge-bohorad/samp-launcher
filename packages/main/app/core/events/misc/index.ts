@@ -12,3 +12,9 @@ EventManager.add('WINDOW_CLOSE', async () => {
 EventManager.add('COPY_TO_CLIPBOARD', async (data) => {
   Service.Misc.copyToClipboard(data)
 })
+
+EventManager.add('SHOW_SYSTEM_DIALOG', async ({ type, defaultPath, filters }) => {
+  const paths = await Service.Misc.showSystemDialog(type, defaultPath, filters)
+
+  return [paths, null]
+})
