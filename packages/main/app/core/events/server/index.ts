@@ -19,6 +19,10 @@ EventManager.add('SERVER_CLONE', async (serverId) => {
   return [newServer, null]
 })
 
+EventManager.add('SERVER_UPDATE_NICKNAME', async ({ serverId, nickname }) => {
+  await Models.Server.setNickname(serverId, nickname)
+})
+
 EventManager.add('SERVER_UPDATE_ADDRESS', async ({ serverId, host, port }) => {
   await Models.Server.setAddress(serverId, host, port)
 })

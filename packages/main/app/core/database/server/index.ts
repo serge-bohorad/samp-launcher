@@ -28,6 +28,15 @@ export namespace Server {
       .execute()
   }
 
+  export function setNickname(id: number, nickname: string): Promise<UpdateResult> {
+    return getRepository(EntityServer)
+      .createQueryBuilder()
+      .update()
+      .set({ nickname })
+      .where('id = :id', { id })
+      .execute()
+  }
+
   export function setAddress(id: number, host: string, port: number): Promise<UpdateResult> {
     return getRepository(EntityServer)
       .createQueryBuilder()

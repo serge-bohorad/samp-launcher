@@ -27,6 +27,10 @@ export namespace Server {
     return newServer
   }
 
+  export function setNickname(id: number, nickname: string): Promise<UpdateResult> {
+    return Database.Server.setNickname(id, nickname)
+  }
+
   export function setAddress(id: number, host: string, port: number): Promise<UpdateResult> {
     return Database.Server.setAddress(id, host, port)
   }
