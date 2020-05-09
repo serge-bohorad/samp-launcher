@@ -1,0 +1,13 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  margin-left: 10px;
+  color: $color-fourth;
+  font: 14px 'MyriadProRegular';
+  user-select: none;
+}
