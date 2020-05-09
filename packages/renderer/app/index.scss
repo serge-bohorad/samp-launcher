@@ -2,21 +2,23 @@
 @import './assets/scss/fonts.scss';
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 
   &-track {
-    background-color: #464850;
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 90px;
   }
 
   &-thumb {
-    background-color: #6a6b73;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 90px;
 
     &:hover {
-      background-color: #73757d;
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
     &:active {
-      background-color: #7c7e87;
+      background-color: rgba(255, 255, 255, 0.4);
     }
   }
 }
