@@ -4,6 +4,11 @@ export interface AddingPayload {
   groupId: number
 }
 
+export interface UpdatingNicknamePayload {
+  serverId: number
+  nickname: string
+}
+
 export interface UpdatingAddressPayload {
   host: string
   port: number

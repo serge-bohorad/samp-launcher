@@ -3,7 +3,13 @@ import { Server } from '@shared/types/entities'
 import { errorAddressEmpty, defaultPort } from './data'
 
 import { getSelectedGroup } from '@app/stores/group'
-import { addServer, getSelectedServer, deleteServer, setServerAddress } from '@app/stores/server'
+import {
+  addServer,
+  getSelectedServer,
+  deleteServer,
+  getServerAddress,
+  setServerAddress
+} from '@app/stores/server'
 import { copyToClipboard } from '../misc'
 
 export async function onAddServer(
@@ -57,11 +63,25 @@ export async function onCloneServer(targetServer = getSelectedServer()): Promise
   // TODO: refresh server
 }
 
+export function onSaveServerNickname(
+  newNickname: string,
+  targetServer = getSelectedServer()
+): void {
+  if (!targetServer) {
+    return
+  }
+
+  invokeMainUnilaterally('SERVER_UPDATE_NICKNAME', {
+    serverId: targetServer.id,
+    nickname: newNickname
+  })
+}
+
 export function onSaveServerAddress(
   newServerAddress: string,
   targetServer = getSelectedServer()
 ): string | void {
-  if (!targetServer || compareServerAddress(targetServer, newServerAddress)) {
+  if (!targetServer || getServerAddress(targetServer).equal(newServerAddress)) {
     return
   }
 
@@ -71,7 +91,7 @@ export function onSaveServerAddress(
 
   const [host, port] = splitServerAddress(newServerAddress)
 
-  invokeMainUnilaterally('SERVER_UPDATE_ADDRESS', { host, port, serverId: targetServer.id })
+  invokeMainUnilaterally('SERVER_UPDATE_ADDRESS', { serverId: targetServer.id, host, port })
 
   setServerAddress(targetServer, host, port)
 }
@@ -83,7 +103,7 @@ function splitServerAddress(serverAddress: string): [string, number] {
   return [host, port]
 }
 
-export function generateServerInfo(targetServer: Server): string {
+function generateServerInfo(targetServer: Server): string {
   const {
     name,
     hostname,
@@ -112,8 +132,4 @@ export function generateServerInfo(targetServer: Server): string {
   ]
 
   return info.join('\n')
-}
-
-function compareServerAddress({ host, port }: Server, address: string): boolean {
-  return `${host}:${port}`.equal(address)
 }
