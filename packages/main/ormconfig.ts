@@ -1,6 +1,6 @@
 import { ConnectionOptions } from 'typeorm'
 
-import { Group, Server } from './app/database/entities'
+import { Group, Server, Settings } from './app/database/entities'
 
 const { NODE_ENV } = process.env
 
@@ -10,7 +10,7 @@ const config: ConnectionOptions = {
   synchronize: NODE_ENV === 'development',
   migrations: ['packages/**/migrations/*.ts'],
   logging: false,
-  entities: [Group, Server],
+  entities: [Group, Server, Settings],
   cli: {
     migrationsDir: 'packages/main/app/migrations'
   }
