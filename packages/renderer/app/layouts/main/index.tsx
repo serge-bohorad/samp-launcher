@@ -3,6 +3,7 @@ import cn from 'classnames'
 
 import { Props } from './types'
 
+import { onFetchSettings } from '@app/services/settings'
 import { onFetchGroups } from '@app/services/group'
 
 import { PageHome } from '@app/pages/home'
@@ -14,6 +15,7 @@ export const LayoutMain: FunctionComponent<Props> = (props) => {
   const { className } = props
 
   const init = useCallback(async () => {
+    await onFetchSettings()
     await onFetchGroups()
   }, [])
 
