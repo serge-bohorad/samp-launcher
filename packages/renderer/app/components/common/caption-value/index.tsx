@@ -6,12 +6,25 @@ import { Props } from './types'
 import styles from './styles.scss'
 
 export const CaptionValue: FunctionComponent<Props> = (props) => {
-  const { className, caption, selectable, children } = props
+  const {
+    className,
+    captionClassName,
+    valueClassName,
+    caption,
+    title,
+    selectable,
+    children
+  } = props
 
   return (
     <div className={cn(styles.container, className)}>
-      <div className={styles.caption}>{caption}</div>
-      <div className={cn(styles.value, { [styles.unselected]: !selectable })}>{children}</div>
+      <div className={cn(styles.caption, captionClassName)}>{caption}</div>
+      <div
+        className={cn(styles.value, { [styles.unselected]: !selectable }, valueClassName)}
+        title={title}
+      >
+        {children}
+      </div>
     </div>
   )
 }
