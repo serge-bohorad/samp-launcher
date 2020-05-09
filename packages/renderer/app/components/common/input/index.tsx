@@ -17,7 +17,8 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
     invalid,
     placeholder,
     value,
-    onChange
+    onChange,
+    onBlur
   } = props
 
   return (
@@ -34,6 +35,7 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      onBlur={onBlur}
     />
   )
 })

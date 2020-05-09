@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, FocusEvent } from 'react'
 
 export interface Props {
   className?: string
@@ -11,7 +11,8 @@ export interface Props {
   invalid?: any
   placeholder?: string
   value: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => any
+  onChange: (event: ChangeEvent<HTMLInputElement>) => any
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => any
 }
 
 export type InputTypes = 'text' | 'number' | 'password'
