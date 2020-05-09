@@ -19,7 +19,7 @@
 
 .body {
   flex: 1 1 auto;
-  overflow: hidden auto;
+  overflow: hidden overlay;
   color: $color-fourth;
   background-color: $color-third-dark;
   font: 14px 'MyriadProRegular';
@@ -34,6 +34,6 @@
 }
 
 .disabled {
-  opacity: 0.5;
+  opacity: 0.8;
   pointer-events: none;
 }
