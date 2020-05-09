@@ -1,0 +1,43 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  font-size: 16px;
+
+  &:hover {
+    & > .button-delete {
+      opacity: 1;
+    }
+  }
+}
+
+.icon {
+  min-width: 16px;
+}
+
+.path {
+  padding: 0 5px 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.button-delete {
+  margin-left: auto;
+  height: 100%;
+  width: 30px;
+  opacity: 0;
+
+  &:hover {
+    & > svg {
+      fill: #fff;
+    }
+  }
+
+  & svg {
+    width: 12px;
+    fill: $color-fourth-dark;
+  }
+}

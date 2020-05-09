@@ -1,0 +1,26 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $color-third-light;
+}
+
+.button {
+  margin-left: 8px;
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  & svg {
+    width: 24px;
+  }
+}
+
+.button-delete {
+  margin-left: auto;
+}

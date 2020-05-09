@@ -1,0 +1,41 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  width: 400px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  width: 100%;
+  font-size: 16px;
+
+  &::placeholder {
+    font-size: 14px;
+  }
+}
+
+.button-browse {
+  margin-left: 20px;
+  width: 50px;
+  height: 40px;
+  border-radius: 4px;
+
+  & svg {
+    width: 26px;
+  }
+}
+
+.error {
+  margin: 15px 15px 0 15px;
+  text-align: center;
+  color: $color-error;
+  font: 14px 'GilroyRegular';
+
+  &:empty {
+    margin: 0;
+  }
+}

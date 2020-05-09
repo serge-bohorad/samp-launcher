@@ -1,0 +1,34 @@
+@import '@app/assets/scss/colors.scss';
+
+.caption {
+  line-height: 40px !important;
+  padding-left: 23px;
+  color: $color-main;
+  background-color: $color-third;
+  font: 18px 'GilroyMedium';
+  user-select: none;
+}
+
+.content {
+  background-color: $color-third-medium;
+
+  & > * {
+    padding: 15px;
+    border-left: 8px solid rgba(0, 0, 0, 0);
+    font: 16px 'MyriadProRegular';
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0); // Fix flickering
+      border-left-color: $color-third-light;
+    }
+
+    &:active {
+      transition: 0.5s ease-in-out;
+      transition-delay: 0.1s;
+      box-shadow: inset 500px 0 0 0 $color-third-light;
+      background-color: $color-third-medium;
+      border-left-color: $color-third-light;
+    }
+  }
+}

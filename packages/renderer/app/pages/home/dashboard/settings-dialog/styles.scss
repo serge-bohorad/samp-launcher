@@ -1,0 +1,23 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  width: 500px;
+  height: 450px;
+}
+
+.body {
+  padding: 15px 0;
+  overflow-y: hidden;
+
+  &:hover {
+    overflow-y: overlay;
+  }
+
+  & > * {
+    margin-top: 15px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}

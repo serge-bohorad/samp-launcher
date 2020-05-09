@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 
 import { createDatabaseConnection } from './database'
+import { Models } from './core/models'
 
 import './core/events'
 
@@ -21,6 +22,15 @@ app.on('ready', async () => {
 
 async function setupDatabase(): Promise<void> {
   await createDatabaseConnection()
+  await initSettingsRow()
+}
+
+async function initSettingsRow(): Promise<void> {
+  const exists = await Models.Settings.doesEntryExists()
+
+  if (!exists) {
+    await Models.Settings.initEntry()
+  }
 }
 
 async function createWindow(): Promise<void> {

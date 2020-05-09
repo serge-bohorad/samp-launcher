@@ -1,0 +1,39 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover {
+    & > .icon {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    & > .icon {
+      fill: #fff;
+    }
+  }
+}
+
+.caption-value {
+  padding-right: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content {
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon {
+  min-width: 18px;
+  fill: $color-fourth-dark;
+  opacity: 0;
+}
