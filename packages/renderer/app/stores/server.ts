@@ -48,6 +48,10 @@ export class ServerStore {
     }
   }
 
+  @action setServerNickname = (targetServer: Server, nickname: string): void => {
+    targetServer.nickname = nickname
+  }
+
   @action setServerAddress = (targetServer: Server, host: string, port: number): void => {
     targetServer.host = host
     targetServer.port = port
@@ -59,6 +63,14 @@ export class ServerStore {
 
   getSelectedServer = (): Server | undefined => {
     return this.selectedServer
+  }
+
+  getServerNickname = (server: Server): string => {
+    return server.nickname
+  }
+
+  getServerAddress = ({ host, port }: Server): string => {
+    return `${host}:${port}`
   }
 
   isSelectedServer = (server: Server): boolean => {
@@ -76,5 +88,7 @@ export const {
   setServerAddress,
   getServers,
   getSelectedServer,
+  getServerNickname,
+  getServerAddress,
   isSelectedServer
 } = serverStore
