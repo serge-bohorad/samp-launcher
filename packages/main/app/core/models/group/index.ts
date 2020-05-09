@@ -25,8 +25,8 @@ export namespace Group {
     return Database.Group.deleteById(id)
   }
 
-  export function rename(id: number, name: string): Promise<UpdateResult> {
-    return Database.Group.rename(id, name)
+  export function setName(id: number, name: string): Promise<UpdateResult> {
+    return Database.Group.setName(id, name)
   }
 
   export function unsetSelected(): Promise<UpdateResult> {

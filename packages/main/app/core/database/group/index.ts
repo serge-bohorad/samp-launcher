@@ -37,7 +37,7 @@ export namespace Group {
       .execute()
   }
 
-  export function rename(id: number, name: string): Promise<UpdateResult> {
+  export function setName(id: number, name: string): Promise<UpdateResult> {
     return getRepository(EntityGroup)
       .createQueryBuilder()
       .update()

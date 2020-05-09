@@ -22,7 +22,7 @@ EventManager.add('GROUP_DELETE', async (groupId) => {
 })
 
 EventManager.add('GROUP_RENAME', async ({ groupId, newGroupName }) => {
-  await Models.Group.rename(groupId, newGroupName)
+  await Models.Group.setName(groupId, newGroupName)
 })
 
 EventManager.add('GROUP_SWITCH_SELECTED', async (groupId) => {
