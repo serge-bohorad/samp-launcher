@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback, useEffect } from 'react'
+import React, { FunctionComponent, MouseEvent, useCallback, useEffect } from 'react'
 import cn from 'classnames'
 
 import { Props } from './types'
@@ -6,13 +6,18 @@ import { Props } from './types'
 import { onFetchSettings } from '@app/services/settings'
 import { onFetchGroups } from '@app/services/group'
 
-import { PageHome } from '@app/pages/home'
 import { Titlebar } from './titlebar'
+import { PageHome } from '@app/pages/home'
 
 import styles from './styles.scss'
 
 export const LayoutMain: FunctionComponent<Props> = (props) => {
   const { className } = props
+
+  const onMouseMove = useCallback((event: MouseEvent) => {
+    window.cursorPosX = event.clientX
+    window.cursorPosY = event.clientY
+  }, [])
 
   const init = useCallback(async () => {
     await onFetchSettings()
@@ -24,7 +29,7 @@ export const LayoutMain: FunctionComponent<Props> = (props) => {
   }, [])
 
   return (
-    <div className={cn(styles.container, className)}>
+    <div className={cn(styles.container, className)} onMouseMove={onMouseMove}>
       <Titlebar />
       <PageHome className={styles.page} />
     </div>
