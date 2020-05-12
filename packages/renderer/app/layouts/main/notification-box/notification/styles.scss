@@ -1,0 +1,49 @@
+@import '@app/assets/scss/colors.scss';
+@import '@app/assets/scss/keyframes.scss';
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: $color-third;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  animation: slide-left 0.4s;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 5px;
+  font: 12px 'NotoSansRegular';
+}
+
+.icon-type {
+  min-width: 20px;
+  margin-right: 10px;
+}
+
+.button-close {
+  min-width: 20px;
+  height: 20px;
+  border-radius: 4px;
+
+  & svg {
+    width: 9px;
+    fill: #fff;
+  }
+}
+
+.icon-error {
+  fill: #e40000;
+}
+
+.icon-warning {
+  fill: #ffd700;
+}
+
+.icon-info {
+  fill: #1ba1e2;
+}

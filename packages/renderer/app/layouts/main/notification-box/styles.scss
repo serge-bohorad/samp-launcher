@@ -1,0 +1,46 @@
+@import '@app/assets/scss/colors.scss';
+
+$width: 350px;
+
+.container {
+  position: fixed;
+  left: calc(100% - (#{$width} + 12px));
+  bottom: 30px;
+  padding: 5px;
+  width: $width;
+  max-height: 600px;
+  overflow: hidden;
+  z-index: 1;
+
+  &:hover {
+    & > .button-clear {
+      opacity: 1;
+    }
+  }
+}
+
+.button-clear {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  opacity: 0;
+
+  & svg {
+    width: 26px;
+  }
+}
+
+.notification-container {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 5px;
+}
+
+.notification {
+  margin-top: 10px;
+
+  &:last-child {
+    margin-top: 0;
+  }
+}

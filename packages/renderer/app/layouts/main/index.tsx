@@ -8,6 +8,7 @@ import { onFetchGroups } from '@app/services/group'
 
 import { Titlebar } from './titlebar'
 import { PageHome } from '@app/pages/home'
+import { NotificationBox } from './notification-box'
 
 import styles from './styles.scss'
 
@@ -32,6 +33,7 @@ export const LayoutMain: FunctionComponent<Props> = (props) => {
     <div className={cn(styles.container, className)} onMouseMove={onMouseMove}>
       <Titlebar />
       <PageHome className={styles.page} />
+      <NotificationBox />
     </div>
   )
 }
