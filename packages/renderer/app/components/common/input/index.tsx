@@ -14,7 +14,6 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
     max,
     step,
     disabled,
-    invalid,
     placeholder,
     value,
     onChange,
@@ -24,7 +23,7 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
   return (
     <input
       ref={ref}
-      className={cn(styles.input, className, { [styles.invalid]: invalid })}
+      className={cn(styles.input, className)}
       type={type}
       name={name}
       min={min}

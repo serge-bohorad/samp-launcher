@@ -20,6 +20,12 @@
     }
   }
 
+  &::placeholder {
+    font-size: 13px;
+    color: $color-fifth-medium;
+    user-select: none;
+  }
+
   &[type='password']:not(:placeholder-shown) {
     font-size: 20px;
   }
@@ -28,14 +34,4 @@
   &[type='number']::-webkit-outer-spin-button {
     appearance: none;
   }
-
-  &::placeholder {
-    font-size: 13px;
-    color: #a1a1a1;
-    user-select: none;
-  }
-}
-
-.invalid {
-  border-color: $color-error;
 }

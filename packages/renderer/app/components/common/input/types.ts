@@ -8,7 +8,6 @@ export interface Props {
   max?: number
   step?: number
   disabled?: boolean
-  invalid?: any
   placeholder?: string
   value: string
   onChange: (event: ChangeEvent<HTMLInputElement>) => any
