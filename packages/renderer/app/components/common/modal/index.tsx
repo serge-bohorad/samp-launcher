@@ -10,7 +10,7 @@ import { Portal } from '../portal'
 import styles from './styles.scss'
 
 export const Modal: FunctionComponent<Props> = (props) => {
-  const { className, closable, children, onClose } = props
+  const { className, closable = true, children, onClose } = props
 
   const closeHandler = useCallback(() => {
     if (!closable) {
