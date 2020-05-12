@@ -4,7 +4,6 @@ const { resolve } = require('path')
 const TsConfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ForkTsCheckerPlugin = require('fork-ts-checker-webpack-plugin')
-const { ElectronAutoReloadPlugin } = require('electron-auto-reload-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 
 const PATH_ROOT = resolve(__dirname, '../')
@@ -53,5 +52,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new ElectronAutoReloadPlugin(), new ForkTsCheckerPlugin({ tsconfig: PATH_TS_CONFIG })]
+  plugins: [new ForkTsCheckerPlugin({ tsconfig: PATH_TS_CONFIG })]
 }

@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 const merge = require('webpack-merge')
 const { SourceMapDevToolPlugin } = require('webpack')
+const { ElectronAutoReloadPlugin } = require('electron-auto-reload-webpack-plugin')
 
 const baseConfig = require('./base.config')
 const rendererConfig = require('./renderer.config')
@@ -29,6 +30,8 @@ const finalRendererConfig = merge(baseConfig, devConfig, rendererConfig, {
     }
   }
 })
-const finalMainConfig = merge(baseConfig, devConfig, mainConfig)
+const finalMainConfig = merge(baseConfig, devConfig, mainConfig, {
+  plugins: [new ElectronAutoReloadPlugin()]
+})
 
 module.exports = [finalRendererConfig, finalMainConfig]
