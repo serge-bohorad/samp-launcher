@@ -8,8 +8,10 @@
   "scripts": {
     "start": "npm-run-all clear:dist compile:dev",
     "build": "npm-run-all clear:dist compile:prod",
-    "review": "npm-run-all compile:review",
+    "electron:build": "electron-builder -c electron-builder.json",
+    "app:build": "npm-run-all build clear:build electron:build",
     "clear:dist": "rimraf dist/*",
+    "clear:build": "rimraf build/*",
     "compile:dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack/dev.config",
     "compile:prod": "cross-env NODE_ENV=production webpack --config webpack/prod.config",
     "typeorm:cli": "ts-node node_modules/typeorm/cli.js -f packages/main/ormconfig.ts",
