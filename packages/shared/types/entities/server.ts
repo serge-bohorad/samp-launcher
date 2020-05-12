@@ -18,7 +18,7 @@ export interface ServerInfo {
   mode?: string
   language?: string
   lagcomp?: string
-  map?: string
+  mapname?: string
   version?: string
   weather?: string
   weburl?: string

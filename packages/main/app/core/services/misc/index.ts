@@ -1,4 +1,4 @@
-import { BrowserWindow, FileFilter, clipboard, app, dialog } from 'electron'
+import { BrowserWindow, FileFilter, clipboard, app, dialog, shell } from 'electron'
 
 import { SystemDialogType } from '@shared/types/misc'
 
@@ -31,5 +31,9 @@ export namespace Misc {
     }
 
     return filePaths
+  }
+
+  export function openLink(link): Promise<void> {
+    return shell.openExternal(`http://${link}`)
   }
 }

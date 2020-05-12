@@ -18,3 +18,7 @@ EventManager.add('SHOW_SYSTEM_DIALOG', async ({ type, defaultPath, filters }) =>
 
   return [paths, null]
 })
+
+EventManager.add('OPEN_LINK', async (link) => {
+  await Service.Misc.openLink(link)
+})

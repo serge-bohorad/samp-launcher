@@ -1,0 +1,11 @@
+.field {
+  margin-top: 8px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.field-key {
+  min-width: 95px;
+}

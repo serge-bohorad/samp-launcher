@@ -27,7 +27,7 @@ const ManageGroupDialogComponent: FunctionComponent = () => {
     <Dialog
       className={cn(styles.container, { [styles.filled]: !groups.isEmpty() })}
       bodyClassName={styles.body}
-      caption="Group management"
+      caption="Manage groups"
       concave={groups.isEmpty()}
       closable={closable}
       firstButtonText="Close"

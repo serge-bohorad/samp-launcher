@@ -10,13 +10,16 @@ import { Nickname } from './nickname'
 import { ControlBox } from './control-box'
 import { SearchServer } from './search-server'
 import { SettingsDialog } from './settings-dialog'
+import { EditGameDirectoryDialog } from './edit-game-directory-dialog'
 
 import styles from './styles.scss'
 
 const DashboardComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
-  const { settingsDialogShown } = useSelector(({ settings }) => settings)
+  const { settingsDialogShown, editGameDirectoryDialogShown } = useSelector(
+    ({ settings }) => settings
+  )
 
   return (
     <div className={cn(styles.container, className)}>
@@ -25,6 +28,7 @@ const DashboardComponent: FunctionComponent<Props> = (props) => {
       <SearchServer className={styles.searchServer} />
 
       {settingsDialogShown && <SettingsDialog />}
+      {editGameDirectoryDialogShown && <EditGameDirectoryDialog />}
     </div>
   )
 }

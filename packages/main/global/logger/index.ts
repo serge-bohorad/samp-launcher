@@ -1,9 +1,7 @@
 import fs from 'fs'
-import momentjs from 'moment'
+import moment from 'moment'
 
 import { directoryPath, logFilePath } from './data'
-
-const moment = momentjs()
 
 class Logger implements LoggerConstructor {
   constructor() {
@@ -43,7 +41,7 @@ class Logger implements LoggerConstructor {
   }
 
   private getDate = (): string => {
-    return moment.utcOffset('Europe/Moscow').format('DD-MM-YYYY HH:MM:SS')
+    return moment().format('DD-MM-YYYY HH:mm:ss')
   }
 
   private isLogDirectoryExists = (): boolean => {

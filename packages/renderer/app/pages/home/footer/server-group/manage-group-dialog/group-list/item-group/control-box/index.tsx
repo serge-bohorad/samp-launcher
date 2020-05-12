@@ -1,7 +1,10 @@
 import React, { FunctionComponent, useCallback } from 'react'
+import { observer } from 'mobx-react'
 import cn from 'classnames'
 
 import { Props } from './types'
+
+import { onDeleteGroup } from '@app/services/group'
 
 import { useSelector } from '@app/hooks/common'
 
@@ -12,14 +15,13 @@ import styles from './styles.scss'
 import IconRename from '@app/assets/icons/edit.svg'
 import IconDelete from '@app/assets/icons/cross.svg'
 
-export const ControlBox: FunctionComponent<Props> = (props) => {
+const ControlBoxComponent: FunctionComponent<Props> = (props) => {
   const { className, group } = props
 
   const {
-    setSubjectGroup,
-    setRenameGroupDialogShown,
-    setDeleteGroupConfirmDialogShown
-  } = useSelector(({ group }) => group)
+    group: { setSubjectGroup, setRenameGroupDialogShown, setDeleteGroupConfirmDialogShown },
+    settings: { deletionConfirm }
+  } = useSelector((store) => store)
 
   const onClickRename = useCallback(() => {
     setSubjectGroup(group)
@@ -28,10 +30,14 @@ export const ControlBox: FunctionComponent<Props> = (props) => {
   }, [group])
 
   const onClickDelete = useCallback(() => {
-    setSubjectGroup(group)
+    if (deletionConfirm) {
+      setSubjectGroup(group)
+      setDeleteGroupConfirmDialogShown(true)
+      return
+    }
 
-    setDeleteGroupConfirmDialogShown(true)
-  }, [group])
+    onDeleteGroup(group)
+  }, [deletionConfirm, group])
 
   return (
     <div className={cn(styles.container, className)}>
@@ -50,3 +56,5 @@ export const ControlBox: FunctionComponent<Props> = (props) => {
     </div>
   )
 }
+
+export const ControlBox = observer(ControlBoxComponent)

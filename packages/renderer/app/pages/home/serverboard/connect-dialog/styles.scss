@@ -1,0 +1,35 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  width: 400px;
+  height: 400px;
+}
+
+.server-name {
+  text-align: center;
+  max-height: 2.6em;
+  color: $color-main;
+  overflow: hidden;
+  font: 18px 'NotoSansRegular';
+}
+
+.server-info {
+  margin-top: 15px;
+}
+
+.input-password {
+  margin-top: 15px;
+  width: 100%;
+  height: 36px;
+}
+
+.error {
+  margin: 10px 15px 0 15px;
+  text-align: center;
+  color: $color-error;
+  font: 14px 'GilroyRegular';
+
+  &:empty {
+    margin: 0;
+  }
+}

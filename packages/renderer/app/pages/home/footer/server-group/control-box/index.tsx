@@ -4,6 +4,8 @@ import cn from 'classnames'
 
 import { Props } from './types'
 
+import { onDeleteGroup } from '@app/services/group'
+
 import { useSelector } from '@app/hooks/common'
 
 import { IconButton } from '@app/components/common'
@@ -19,20 +21,27 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
   const {
-    selectedGroup,
-    setCreateGroupDialogShown,
-    setDeleteGroupConfirmDialogShown,
-    setManageGroupDialogShown,
-    setRenameGroupDialogShown
-  } = useSelector(({ group }) => group)
+    group: {
+      selectedGroup,
+      setCreateGroupDialogShown,
+      setDeleteGroupConfirmDialogShown,
+      setManageGroupDialogShown,
+      setRenameGroupDialogShown
+    },
+    settings: { deletionConfirm }
+  } = useSelector((store) => store)
 
   const onClickCreate = useCallback(() => {
     setCreateGroupDialogShown(true)
   }, [])
 
   const onClickDelete = useCallback(() => {
-    setDeleteGroupConfirmDialogShown(true)
-  }, [])
+    if (deletionConfirm) {
+      return setDeleteGroupConfirmDialogShown(true)
+    }
+
+    onDeleteGroup()
+  }, [deletionConfirm])
 
   const onClickManage = useCallback(() => {
     setManageGroupDialogShown(true)
@@ -46,18 +55,27 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
     <div className={cn(styles.container, className)}>
       <IconButton
         className={cn(styles.button, styles.buttonCreate)}
+        title="Create a new group"
         icon={IconCreate}
         onClick={onClickCreate}
       />
       <IconButton
         className={cn(styles.button, styles.buttonDelete)}
+        title="Delete the selected group"
         disabled={!selectedGroup}
         icon={IconDelete}
         onClick={onClickDelete}
       />
-      <IconButton className={styles.button} icon={IconManage} onClick={onClickManage} />
       <IconButton
         className={styles.button}
+        title="Manage groups"
+        disabled={!selectedGroup}
+        icon={IconManage}
+        onClick={onClickManage}
+      />
+      <IconButton
+        className={styles.button}
+        title="Rename the selected group"
         disabled={!selectedGroup}
         icon={IconEditName}
         onClick={onClickEditName}

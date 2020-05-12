@@ -7,7 +7,7 @@ import './core/events'
 
 export const windowWidth = 1152
 export const windowHeight = 720
-export const pathTemplate = './dist/index.html'
+export const pathTemplate = 'dist/index.html'
 
 let mainWindow: BrowserWindow | null
 

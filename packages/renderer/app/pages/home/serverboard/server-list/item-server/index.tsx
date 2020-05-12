@@ -27,7 +27,7 @@ const ItemServerComponent: FunctionComponent<Props> = (props) => {
     ping = 0,
     mode = '-',
     language = '-',
-    map = '-'
+    mapname = '-'
   } = server
 
   const onClickSelectServer = useCallback(() => {
@@ -53,7 +53,7 @@ const ItemServerComponent: FunctionComponent<Props> = (props) => {
       <div className={cn(styles.column, styles.ping)}>{ping}</div>
       <div className={cn(styles.column, styles.mode)}>{mode}</div>
       <div className={cn(styles.column, styles.language)}>{language}</div>
-      <div className={cn(styles.column, styles.map)}>{map}</div>
+      <div className={cn(styles.column, styles.map)}>{mapname}</div>
     </div>
   )
 }

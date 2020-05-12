@@ -12,20 +12,26 @@ import { CaptionValue, IconButton, Link } from '@app/components/common'
 import styles from './styles.scss'
 
 import IconCopyAddress from '@app/assets/icons/copy.svg'
+import { copyToClipboard } from '@app/services/misc'
 
 const ServerDetailComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
-  const { selectedServer } = useSelector(({ server }) => server)
+  const {
+    server: { selectedServer },
+    misc: { addNotification }
+  } = useSelector((store) => store)
 
   const { host, port, weburl, version = '-' } = selectedServer || {}
 
-  const onClickCopyAddress = useCallback(() => {
-    //
-  }, [])
-
   const address = host ? `${host}:${port}` : '-'
   const webSite = weburl ? <Link text={weburl} /> : '-'
+
+  const onClickCopyAddress = useCallback(() => {
+    copyToClipboard(address)
+
+    addNotification({ type: 'info', content: 'The address has been copied' })
+  }, [address])
 
   return (
     <div className={cn(styles.container, className)}>
@@ -37,6 +43,7 @@ const ServerDetailComponent: FunctionComponent<Props> = (props) => {
         {selectedServer && (
           <IconButton
             className={styles.buttonCopyAddress}
+            title="Copy address"
             icon={IconCopyAddress}
             onClick={onClickCopyAddress}
           />

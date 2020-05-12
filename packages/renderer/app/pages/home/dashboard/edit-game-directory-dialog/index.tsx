@@ -12,7 +12,12 @@ import styles from './styles.scss'
 import IconBrowseFolder from '@app/assets/icons/folder.svg'
 
 export const EditGameDirectoryDialog: FunctionComponent = () => {
-  const { gameDirectory, setEditGameDirectoryDialogShown } = useSelector(({ settings }) => settings)
+  const {
+    settings: { gameDirectory, settingsDialogShown, setEditGameDirectoryDialogShown },
+    server: { connectDialogShown }
+  } = useSelector((store) => store)
+
+  const dimming = settingsDialogShown || connectDialogShown
 
   const [disabled, setDisabled] = useState(false)
   const [tempPath, setTempPath] = useState(gameDirectory)
@@ -53,7 +58,7 @@ export const EditGameDirectoryDialog: FunctionComponent = () => {
       className={styles.container}
       caption="Edit game directory path"
       concave={true}
-      dimming={true}
+      dimming={dimming}
       disabled={disabled}
       closable={!disabled}
       firstButtonText="Save"

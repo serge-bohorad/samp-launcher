@@ -12,6 +12,7 @@
   color: $color-fourth;
   font-size: 15px;
   overflow: hidden;
+  user-select: none;
 
   &:hover {
     overflow-y: auto;

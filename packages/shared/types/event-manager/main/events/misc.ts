@@ -5,6 +5,7 @@ export interface MiscEvents {
   WINDOW_CLOSE
   COPY_TO_CLIPBOARD
   SHOW_SYSTEM_DIALOG
+  OPEN_LINK
 }
 
 export interface MiscEventsPayload {
@@ -12,6 +13,7 @@ export interface MiscEventsPayload {
   WINDOW_CLOSE
   COPY_TO_CLIPBOARD: string | number
   SHOW_SYSTEM_DIALOG: ShowingSystemDialogPayload
+  OPEN_LINK: string
 }
 
 export interface MiscEventsReturns {
@@ -19,4 +21,5 @@ export interface MiscEventsReturns {
   WINDOW_CLOSE
   COPY_TO_CLIPBOARD
   SHOW_SYSTEM_DIALOG: void | string[]
+  OPEN_LINK
 }

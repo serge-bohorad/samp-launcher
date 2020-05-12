@@ -6,16 +6,11 @@ import { Props } from './types'
 import { useSelector } from '@app/hooks/common'
 
 import { EditableSection } from '@app/components/particular/home/dashboard/settings-dialog/editable-section'
-import { EditGameDirectoryDialog } from './edit-game-directory-dialog'
 
 const GameDirectorySectionComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
-  const {
-    gameDirectory,
-    editGameDirectoryDialogShown,
-    setEditGameDirectoryDialogShown
-  } = useSelector(({ settings }) => settings)
+  const { gameDirectory, setEditGameDirectoryDialogShown } = useSelector(({ settings }) => settings)
 
   const onClickBrowsePath = useCallback(() => {
     setEditGameDirectoryDialogShown(true)
@@ -31,8 +26,6 @@ const GameDirectorySectionComponent: FunctionComponent<Props> = (props) => {
       >
         {gameDirectory || 'Game directory is not provided'}
       </EditableSection>
-
-      {editGameDirectoryDialogShown && <EditGameDirectoryDialog />}
     </>
   )
 }

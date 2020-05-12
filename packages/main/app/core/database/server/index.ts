@@ -45,4 +45,40 @@ export namespace Server {
       .where('id = :id', { id })
       .execute()
   }
+
+  export function setName(id: number, name: string): Promise<UpdateResult> {
+    return getRepository(EntityServer)
+      .createQueryBuilder()
+      .update()
+      .set({ name })
+      .where('id = :id', { id })
+      .execute()
+  }
+
+  export function setDescription(id: number, description: string): Promise<UpdateResult> {
+    return getRepository(EntityServer)
+      .createQueryBuilder()
+      .update()
+      .set({ description })
+      .where('id = :id', { id })
+      .execute()
+  }
+
+  export function setExtraInject(id: number, extraInject: string[]): Promise<UpdateResult> {
+    return getRepository(EntityServer)
+      .createQueryBuilder()
+      .update()
+      .set({ extraInject })
+      .where('id = :id', { id })
+      .execute()
+  }
+
+  export function setPassword(id: number, password: string): Promise<UpdateResult> {
+    return getRepository(EntityServer)
+      .createQueryBuilder()
+      .update()
+      .set({ password })
+      .where('id = :id', { id })
+      .execute()
+  }
 }

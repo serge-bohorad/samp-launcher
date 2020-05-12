@@ -1,0 +1,18 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  width: 210px;
+}
+
+.item svg {
+  fill: $color-second;
+}
+
+.item-connect svg {
+  fill: #29a72c;
+}
+
+.item-delete svg {
+  width: 15px;
+  fill: #dd2828;
+}

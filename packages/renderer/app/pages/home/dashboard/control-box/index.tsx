@@ -4,9 +4,17 @@ import cn from 'classnames'
 
 import { Props } from './types'
 
-import { onCopyServerInfo, onCloneServer } from '@app/services/server'
+import {
+  onDeleteServer,
+  onCloneServer,
+  onRefreshServer,
+  onRefreshSeveralServers
+} from '@app/services/server'
 
 import { useSelector } from '@app/hooks/common'
+import { useOnClickConnectCallback } from '@app/hooks/particular/home/dashboard/on-click-connect-callback'
+import { useOnClickAddServerCallback } from '@app/hooks/particular/home/dashboard/on-click-add-server-callback'
+import { useOnClickCopyServerInfoCallback } from '@app/hooks/particular/home/dashboard/on-click-copy-server-info-callback'
 
 import { IconButton } from '@app/components/common'
 
@@ -26,37 +34,31 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
   const {
-    selectedServer,
-    setAddServerDialogShown,
-    setDeleteServerConfirmDialogShown,
-    setEditServerAddressDialogShown
-  } = useSelector(({ server }) => server)
+    server: { selectedServer, setDeleteServerConfirmDialogShown, setEditServerAddressDialogShown },
+    settings: { deletionConfirm, setSettingsDialogShown }
+  } = useSelector((store) => store)
 
-  const onClickConnect = useCallback(() => {
-    //
-  }, [])
+  const onClickConnect = useOnClickConnectCallback()
 
-  const onClickAddServer = useCallback(() => {
-    setAddServerDialogShown(true)
-  }, [])
+  const onClickAddServer = useOnClickAddServerCallback()
 
-  // TODO: check showConfirm
   const onClickDeleteServer = useCallback(() => {
-    setDeleteServerConfirmDialogShown(true)
-  }, [])
+    if (deletionConfirm) {
+      return setDeleteServerConfirmDialogShown(true)
+    }
+
+    onDeleteServer()
+  }, [deletionConfirm])
 
   const onClickRefreshServer = useCallback(() => {
-    //
+    onRefreshServer()
   }, [])
 
   const onClickRefreshAllServers = useCallback(() => {
-    //
+    onRefreshSeveralServers()
   }, [])
 
-  const onClickCopyServerInfo = useCallback(() => {
-    onCopyServerInfo()
-    // TODO: add notif
-  }, [])
+  const onClickCopyServerInfo = useOnClickCopyServerInfoCallback()
 
   const onClickCloneServer = useCallback(() => {
     onCloneServer()
@@ -67,7 +69,7 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
   }, [])
 
   const onClickShowSettings = useCallback(() => {
-    //
+    setSettingsDialogShown(true)
   }, [])
 
   return (
@@ -121,7 +123,7 @@ const ControlBoxComponent: FunctionComponent<Props> = (props) => {
         onClick={onClickCloneServer}
       />
       <IconButton
-        className={cn(styles.button, styles.buttonEditAddress)}
+        className={styles.button}
         title="Edit selected server address"
         disabled={!selectedServer}
         icon={EditServerAddressIcon}

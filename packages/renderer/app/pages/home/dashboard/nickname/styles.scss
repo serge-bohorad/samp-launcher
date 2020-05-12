@@ -1,3 +1,33 @@
+@import '@app/assets/scss/colors.scss';
+@import '@app/assets/scss/keyframes.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.button-switch {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+
+  &:hover {
+    & svg {
+      animation: spinner 1.8s linear infinite;
+    }
+  }
+
+  & svg {
+    width: 16px;
+    fill: $color-fifth;
+  }
+}
+
+.button-switch-active svg {
+  fill: $color-main;
+}
+
 .input {
-  width: 170px;
+  margin-left: 5px;
+  width: 170x;
 }

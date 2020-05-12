@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react'
+import { observer } from 'mobx-react'
 import cn from 'classnames'
 
 import { Props } from './types'
 
-import { useInputCallback } from '@app/hooks/common'
+import { useInputCallback, useSelector } from '@app/hooks/common'
 
 import { IconInput } from '@app/components/common'
 
@@ -11,11 +12,13 @@ import styles from './styles.scss'
 
 import SearchIcon from '@app/assets/icons/magnifier.svg'
 
-export const SearchServer: FunctionComponent<Props> = (props) => {
+const SearchServerComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
-  const onChangeServerName = useInputCallback(() => {
-    //
+  const { serverFilter, setServerFilter } = useSelector(({ server }) => server)
+
+  const onChangeFilter = useInputCallback(({ value }) => {
+    setServerFilter(value)
   })
 
   return (
@@ -23,8 +26,10 @@ export const SearchServer: FunctionComponent<Props> = (props) => {
       className={cn(styles.input, className)}
       placeholder="Search server"
       icon={SearchIcon}
-      value=""
-      onChange={onChangeServerName}
+      value={serverFilter}
+      onChange={onChangeFilter}
     />
   )
 }
+
+export const SearchServer = observer(SearchServerComponent)

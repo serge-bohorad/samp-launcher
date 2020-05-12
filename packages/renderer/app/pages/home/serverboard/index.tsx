@@ -8,9 +8,14 @@ import { useSelector } from '@app/hooks/common'
 
 import { SortingBox } from './sorting-box'
 import { ServerList } from './server-list'
+import { ServerMenu } from './server-menu'
 import { AddServerDialog } from './add-server-dialog'
 import { DeleteServerConfirmDialog } from './delete-server-confirm-dialog'
 import { EditServerAddressDialog } from './edit-server-address-dialog'
+import { EditServerNameDialog } from './edit-server-name-dialog'
+import { EditServerDescriptionDialog } from './edit-server-description-dialog'
+import { ManageServerExtraInjectDialog } from './manage-server-extra-inject-dialog'
+import { ConnectDialog } from './connect-dialog'
 
 import styles from './styles.scss'
 
@@ -18,9 +23,14 @@ const ServerboardComponent: FunctionComponent<Props> = (props) => {
   const { className } = props
 
   const {
+    serverMenuShown,
     addServerDialogShown,
     deleteServerConfirmDialogShown,
-    editServerAddressDialogShown
+    editServerAddressDialogShown,
+    editServerNameDialogShown,
+    editServerDescriptionDialogShown,
+    manageServerExtraInjectDialogShown,
+    connectDialogShown
   } = useSelector(({ server }) => server)
 
   return (
@@ -28,9 +38,14 @@ const ServerboardComponent: FunctionComponent<Props> = (props) => {
       <SortingBox />
       <ServerList className={styles.serverList} />
 
+      {serverMenuShown && <ServerMenu />}
       {addServerDialogShown && <AddServerDialog />}
       {deleteServerConfirmDialogShown && <DeleteServerConfirmDialog />}
       {editServerAddressDialogShown && <EditServerAddressDialog />}
+      {editServerNameDialogShown && <EditServerNameDialog />}
+      {editServerDescriptionDialogShown && <EditServerDescriptionDialog />}
+      {manageServerExtraInjectDialogShown && <ManageServerExtraInjectDialog />}
+      {connectDialogShown && <ConnectDialog />}
     </div>
   )
 }

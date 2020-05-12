@@ -34,4 +34,20 @@ export namespace Server {
   export function setAddress(id: number, host: string, port: number): Promise<UpdateResult> {
     return Database.Server.setAddress(id, host, port)
   }
+
+  export function setName(id: number, name: string): Promise<UpdateResult> {
+    return Database.Server.setName(id, name)
+  }
+
+  export function setDescription(id: number, description: string): Promise<UpdateResult> {
+    return Database.Server.setDescription(id, description)
+  }
+
+  export function setExtraInject(id: number, extraInject: string[]): Promise<UpdateResult> {
+    return Database.Server.setExtraInject(id, extraInject)
+  }
+
+  export function setPassword(id: number, password: string): Promise<UpdateResult> {
+    return Database.Server.setPassword(id, password)
+  }
 }
