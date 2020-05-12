@@ -1,0 +1,15 @@
+{
+  "npmRebuild": false,
+  "directories": {
+    "output": "build"
+  },
+  "files": ["package.json", "dist/**/*"],
+  "win": {
+    "target": [
+      {
+        "target": "zip",
+        "arch": ["ia32"]
+      }
+    ]
+  }
+}
