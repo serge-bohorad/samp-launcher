@@ -1,0 +1,19 @@
+@import '@app/assets/scss/keyframes.scss';
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+
+  &:after {
+    content: '';
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: spinner 1.2s linear infinite;
+  }
+}

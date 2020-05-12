@@ -1,0 +1,27 @@
+@import '@app/assets/scss/colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.key {
+  min-width: max-content;
+  color: $color-fifth-medium;
+  font-family: 'GilroyBold';
+  user-select: none;
+}
+
+.value {
+  margin-left: 5px;
+  color: #fff;
+  font-family: 'GilroyRegular';
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.unselectable {
+  user-select: none;
+}

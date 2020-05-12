@@ -1,0 +1,12 @@
+@import '@app/assets/scss/colors.scss';
+@import '@app/assets/scss/keyframes.scss';
+
+.container {
+  position: fixed;
+  padding: 10px 0;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  background-color: $color-third;
+  animation: scale 0.1s;
+  z-index: 1;
+}
