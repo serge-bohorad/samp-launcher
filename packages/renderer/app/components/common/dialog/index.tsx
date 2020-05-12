@@ -8,6 +8,7 @@ import { useKeyPressEffect } from '@app/hooks/common'
 import { Modal } from '../modal'
 import { Header } from './header'
 import { Footer } from './footer'
+import { LoadingBox } from '../loading-box'
 
 import styles from './styles.scss'
 
@@ -19,6 +20,7 @@ export const Dialog: FunctionComponent<Props> = (props) => {
     closable = true,
     disabled,
     dimming,
+    loading,
     caption,
     firstButtonText,
     secondButtonText,
@@ -33,33 +35,33 @@ export const Dialog: FunctionComponent<Props> = (props) => {
   }, [])
 
   const closeClickHandler = useCallback(() => {
-    if (!closable) {
+    if (!closable || loading) {
       return
     }
 
     onClickClose()
-  }, [closable, onClickClose])
+  }, [closable, loading, onClickClose])
 
   useKeyPressEffect(
     ['Enter'],
     () => {
-      if (!closable || !onClickFirstButton) {
+      if (!closable || loading || !onClickFirstButton) {
         return
       }
 
       onClickFirstButton()
     },
-    [closable, onClickFirstButton]
+    [closable, loading, onClickFirstButton]
   )
 
   return (
     <Modal
       className={cn(styles.modal, { [styles.dimming]: dimming })}
-      closable={closable}
+      closable={closable && !loading}
       onClose={closeClickHandler}
     >
       <div
-        className={cn(styles.container, { [styles.disabled]: disabled }, className)}
+        className={cn(styles.container, { [styles.disabled]: disabled || loading }, className)}
         onMouseDown={onClickOnDialog}
       >
         <Header onClickClose={onClickClose}>{caption}</Header>
@@ -72,6 +74,7 @@ export const Dialog: FunctionComponent<Props> = (props) => {
           onClickFirstButton={onClickFirstButton}
           onClickSecondButton={onClickSecondButton}
         />
+        {loading && <LoadingBox />}
       </div>
     </Modal>
   )

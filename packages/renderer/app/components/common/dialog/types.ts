@@ -7,6 +7,7 @@ export interface Props {
   closable?: boolean
   disabled?: boolean
   dimming?: boolean
+  loading?: boolean
   caption?: ReactNode
   firstButtonText?: string
   secondButtonText?: string

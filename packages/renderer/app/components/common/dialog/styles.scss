@@ -8,13 +8,14 @@
 }
 
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 380px;
   background-color: $color-third;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-  animation: smooth-scale 0.3s;
+  animation: scale 0.3s;
 }
 
 .body {
