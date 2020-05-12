@@ -22,6 +22,8 @@ export async function onFetchGroups(): Promise<void> {
     return
   }
 
+  processServersExtraInject(groups!)
+
   setGroups(groups!)
 
   const initialSelectedGroup = findSelectedGroupInIntialArray(groups!)
@@ -87,6 +89,13 @@ export function onSwitchSelectedGroup(newSelectedGroup: Group): void {
   invokeMainUnilaterally('GROUP_SWITCH_SELECTED', newSelectedGroup.id)
 
   setSelectedGroup(newSelectedGroup)
+}
+
+// Replaces servers extra inject with Pairs
+function processServersExtraInject(groups: Group[]): void {
+  groups.forEach(({ servers }) =>
+    servers.forEach((server) => (server.extraInject = Pair.from(server.extraInject as string[])))
+  )
 }
 
 // Finds a selected group in an array that received from main process
