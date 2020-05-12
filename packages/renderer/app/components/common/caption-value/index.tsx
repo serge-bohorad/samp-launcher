@@ -20,7 +20,7 @@ export const CaptionValue: FunctionComponent<Props> = (props) => {
     <div className={cn(styles.container, className)}>
       <div className={cn(styles.caption, captionClassName)}>{caption}</div>
       <div
-        className={cn(styles.value, { [styles.unselected]: !selectable }, valueClassName)}
+        className={cn(styles.value, { [styles.unselectable]: !selectable }, valueClassName)}
         title={title}
       >
         {children}
