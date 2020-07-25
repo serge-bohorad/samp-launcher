@@ -2,54 +2,54 @@ import { UpdateResult } from 'typeorm'
 
 import { Settings as EntitySettings } from '@app/database/entities'
 
-import { Database } from '@app/core/database'
+import { Repositories } from '@app/core/repositories'
 
 export namespace Settings {
   export async function doesEntryExists(): Promise<boolean> {
-    const settings = await Database.Settings.getAll()
+    const settings = await Repositories.Settings.getAll()
 
-    return Boolean(settings)
+    return !!settings
   }
 
   export async function getAll(): Promise<EntitySettings> {
-    const settings = await Database.Settings.getAll()
+    const settings = await Repositories.Settings.getAll()
 
     return settings!
   }
 
   export async function initEntry(): Promise<EntitySettings> {
-    const settings = Database.Settings.create()
+    const settings = Repositories.Settings.create()
 
-    await Database.Settings.insert(settings)
+    await Repositories.Settings.insert(settings)
 
     return settings
   }
 
   export function setNickname(nickname: string): Promise<UpdateResult> {
-    return Database.Settings.setNickname(nickname)
+    return Repositories.Settings.setNickname(nickname)
   }
 
   export function setGameDirectory(gameDirectory: string): Promise<UpdateResult> {
-    return Database.Settings.setGameDirectory(gameDirectory)
+    return Repositories.Settings.setGameDirectory(gameDirectory)
   }
 
   export function setAutoSwitchNickname(state: boolean): Promise<UpdateResult> {
-    return Database.Settings.setAutoSwitchNickname(state)
+    return Repositories.Settings.setAutoSwitchNickname(state)
   }
 
   export function setDeletionConfirm(state: boolean): Promise<UpdateResult> {
-    return Database.Settings.setDeletionConfirm(state)
+    return Repositories.Settings.setDeletionConfirm(state)
   }
 
   export function setServerRefreshDelay(delay: number): Promise<UpdateResult> {
-    return Database.Settings.setServerRefreshDelay(delay)
+    return Repositories.Settings.setServerRefreshDelay(delay)
   }
 
   export function setRefreshAllServers(state: boolean): Promise<UpdateResult> {
-    return Database.Settings.setRefreshAllServers(state)
+    return Repositories.Settings.setRefreshAllServers(state)
   }
 
   export function setExtraInject(extraInject: string[]): Promise<UpdateResult> {
-    return Database.Settings.setExtraInject(extraInject)
+    return Repositories.Settings.setExtraInject(extraInject)
   }
 }

@@ -3,12 +3,12 @@ import { getRepository, InsertResult, UpdateResult } from 'typeorm'
 import { Settings as EntitySettings } from '@app/database/entities'
 
 export namespace Settings {
-  export function getAll(): Promise<EntitySettings | undefined> {
-    return getRepository(EntitySettings).createQueryBuilder().select().where('id = 0').getOne()
-  }
-
   export function create(): EntitySettings {
     return new EntitySettings()
+  }
+
+  export function getAll(): Promise<EntitySettings | undefined> {
+    return getRepository(EntitySettings).createQueryBuilder().select().where('id = 0').getOne()
   }
 
   export function insert(settings: EntitySettings): Promise<InsertResult> {

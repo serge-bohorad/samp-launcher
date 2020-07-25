@@ -2,43 +2,43 @@ import { DeleteResult, UpdateResult } from 'typeorm'
 
 import { Group as EntityGroup } from '@app/database/entities'
 
-import { Database } from '@app/core/database'
+import { Repositories } from '@app/core/repositories'
 
 export namespace Group {
   export function getAll(): Promise<EntityGroup[]> {
-    return Database.Group.getAll()
+    return Repositories.Group.getAll()
   }
 
   export function getById(id: number): Promise<EntityGroup | undefined> {
-    return Database.Group.getById(id)
+    return Repositories.Group.getById(id)
   }
 
   export async function add(groupName: string): Promise<EntityGroup> {
-    const group = Database.Group.create(groupName)
+    const group = Repositories.Group.create(groupName)
 
-    await Database.Group.insert(group)
+    await Repositories.Group.insert(group)
 
     return group
   }
 
   export function deleteById(id: number): Promise<DeleteResult> {
-    return Database.Group.deleteById(id)
+    return Repositories.Group.deleteById(id)
   }
 
   export function setName(id: number, name: string): Promise<UpdateResult> {
-    return Database.Group.setName(id, name)
+    return Repositories.Group.setName(id, name)
   }
 
   export function unsetSelected(): Promise<UpdateResult> {
-    return Database.Group.unsetSelected()
+    return Repositories.Group.unsetSelected()
   }
 
   export function setSelected(id: number): Promise<UpdateResult> {
-    return Database.Group.setSelected(id)
+    return Repositories.Group.setSelected(id)
   }
 
   export async function switchSelected(id: number): Promise<void> {
-    await Database.Group.unsetSelected()
-    await Database.Group.setSelected(id)
+    await Repositories.Group.unsetSelected()
+    await Repositories.Group.setSelected(id)
   }
 }
