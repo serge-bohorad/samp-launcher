@@ -4,10 +4,10 @@ export interface GameEvents {
   GAME_RUN
 }
 
-export interface GameEventsPayload {
+export interface GameEventPayloads {
   GAME_RUN: RunningPayload
 }
 
-export interface GameEventsReturns {
+export interface GameEventReturns {
   GAME_RUN
 }

@@ -1,7 +1,7 @@
 import {
   MainEvents,
-  MainEventsPayload,
-  MainEventsReturns
+  MainEventPayloads,
+  MainEventReturns
 } from '@shared/types/event-manager/main/events'
 
 export type EventsHandlers = {
@@ -9,5 +9,5 @@ export type EventsHandlers = {
 }
 
 export type EventHandler<E extends keyof MainEvents> = (
-  payload: MainEventsPayload[E]
-) => Promise<[null | MainEventsReturns[E], string | null] | void>
+  payload: MainEventPayloads[E]
+) => Promise<[null | MainEventReturns[E], string | null] | void>

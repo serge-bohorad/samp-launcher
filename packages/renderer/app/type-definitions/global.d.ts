@@ -1,23 +1,23 @@
 type RendererEvents = import('@shared/types/event-manager/renderer/events/index').RendererEvents
-type RendererEventsPayload = import('@shared/types/event-manager/renderer/events/index').RendererEventsPayload
+type RendererEventPayloads = import('@shared/types/event-manager/renderer/events/index').RendererEventPayloads
 
 type MainEvents = import('@shared/types/event-manager/main/events/index').MainEvents
-type MainEventsPayload = import('@shared/types/event-manager/main/events/index').MainEventsPayload
-type MainEventsReturns = import('@shared/types/event-manager/main/events/index').MainEventsReturns
+type MainEventPayloads = import('@shared/types/event-manager/main/events/index').MainEventPayloads
+type MainEventReturns = import('@shared/types/event-manager/main/events/index').MainEventReturns
 
 declare namespace NodeJS {
   interface Global {
     addEvent: <E extends keyof RendererEvents>(
       eventName: E,
-      handler: (payload?: RendererEventsPayload[E]) => any
+      handler: (payload?: RendererEventPayloads[E]) => any
     ) => void
     invokeMain: <E extends keyof MainEvents>(
       eventName: E,
-      payload?: MainEventsPayload[E]
-    ) => Promise<[null | MainEventsReturns[E], string | null]>
+      payload?: MainEventPayloads[E]
+    ) => Promise<[null | MainEventReturns[E], string | null]>
     invokeMainUnilaterally: <E extends keyof MainEvents>(
       eventName: E,
-      payload?: MainEventsPayload[E]
+      payload?: MainEventPayloads[E]
     ) => void
   }
 }

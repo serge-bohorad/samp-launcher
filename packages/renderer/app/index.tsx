@@ -2,6 +2,8 @@ import React, { FunctionComponent } from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'mobx-react'
 
+import './global'
+
 import { store } from './stores'
 
 import { LayoutMain } from './layouts/main'

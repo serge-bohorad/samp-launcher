@@ -24,7 +24,7 @@ export interface ServerEvents {
   SERVER_UPDATE_PASSWORD
 }
 
-export interface ServerEventsPayload {
+export interface ServerEventPayloads {
   SERVER_ADD: AddingPayload
   SERVER_DELETE: number
   SERVER_CLONE: number
@@ -38,7 +38,7 @@ export interface ServerEventsPayload {
   SERVER_UPDATE_PASSWORD: UpdatingPasswordPayload
 }
 
-export interface ServerEventsReturns {
+export interface ServerEventReturns {
   SERVER_ADD: Server
   SERVER_DELETE
   SERVER_CLONE: Server

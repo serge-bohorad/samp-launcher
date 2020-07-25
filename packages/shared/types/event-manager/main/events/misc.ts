@@ -8,7 +8,7 @@ export interface MiscEvents {
   OPEN_LINK
 }
 
-export interface MiscEventsPayload {
+export interface MiscEventPayloads {
   WINDOW_MINIMIZE
   WINDOW_CLOSE
   COPY_TO_CLIPBOARD: string | number
@@ -16,7 +16,7 @@ export interface MiscEventsPayload {
   OPEN_LINK: string
 }
 
-export interface MiscEventsReturns {
+export interface MiscEventReturns {
   WINDOW_MINIMIZE
   WINDOW_CLOSE
   COPY_TO_CLIPBOARD

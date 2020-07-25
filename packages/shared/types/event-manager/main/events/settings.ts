@@ -11,7 +11,7 @@ export interface SettingsEvents {
   SETTINGS_UPDATE_EXTRA_INJECT
 }
 
-export interface SettingsEventsPayload {
+export interface SettingsEventPayloads {
   SETTINGS_FETCH
   SETTINGS_UPDATE_NICKNAME: string
   SETTINGS_UPDATE_GAME_DIRECTORY: string
@@ -22,7 +22,7 @@ export interface SettingsEventsPayload {
   SETTINGS_UPDATE_EXTRA_INJECT: string[]
 }
 
-export interface SettingsEventsReturns {
+export interface SettingsEventReturns {
   SETTINGS_FETCH: Settings
   SETTINGS_UPDATE_NICKNAME
   SETTINGS_UPDATE_GAME_DIRECTORY

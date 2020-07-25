@@ -1,5 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 
+import './global'
+
 import { createDatabaseConnection } from './database'
 import { Models } from './core/models'
 

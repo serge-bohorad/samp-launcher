@@ -9,7 +9,7 @@ export interface GroupEvents {
   GROUP_SWITCH_SELECTED
 }
 
-export interface GroupEventsPayload {
+export interface GroupEventPayloads {
   GROUP_FETCH
   GROUP_CREATE: string
   GROUP_DELETE: number
@@ -17,7 +17,7 @@ export interface GroupEventsPayload {
   GROUP_SWITCH_SELECTED: number
 }
 
-export interface GroupEventsReturns {
+export interface GroupEventReturns {
   GROUP_FETCH: Group[]
   GROUP_CREATE: Group
   GROUP_DELETE
