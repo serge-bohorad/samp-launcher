@@ -6,12 +6,12 @@ import { EventsHandlers, EventHandler } from './types'
 export namespace EventManager {
   const eventsHandlers: EventsHandlers = {}
 
-  export function add<E extends keyof MainEvents>(event: E, handler: EventHandler<E>): void {
-    eventsHandlers[event] = handler
+  export function add<E extends keyof MainEvents>(eventName: E, handler: EventHandler<E>): void {
+    eventsHandlers[eventName] = handler
   }
 
-  export function remove<E extends keyof MainEvents>(event: E): void {
-    delete eventsHandlers[event]
+  export function remove<E extends keyof MainEvents>(eventName: E): void {
+    delete eventsHandlers[eventName]
   }
 
   ipcMain.handle(
@@ -21,7 +21,7 @@ export namespace EventManager {
         const handler = eventsHandlers[eventName]
 
         if (!handler) {
-          return Logger.warning(`Handler for "${event}" not found`)
+          return Logger.warning(`Handler for "${eventName}" not found`)
         }
 
         const result = await handler(payload)
@@ -42,7 +42,7 @@ export namespace EventManager {
         const handler = eventsHandlers[eventName]
 
         if (!handler) {
-          return Logger.warning(`Handler for "${event}" not found`)
+          return Logger.warning(`Handler for "${eventName}" not found`)
         }
 
         handler(payload)

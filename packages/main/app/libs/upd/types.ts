@@ -1,9 +1,9 @@
 import { Socket, RemoteInfo } from 'dgram'
 
 export interface EventHandlers {
-  close: (event: 'close', listener: () => void) => Socket
-  connect: (event: 'connect', listener: () => void) => Socket
-  error: (event: 'error', listener: (err: Error) => void) => Socket
-  listening: (event: 'listening', listener: () => void) => Socket
-  message: (event: 'message', listener: (msg: Buffer, rinfo: RemoteInfo) => void) => Socket
+  close: (eventName: 'close', listener: () => void) => Socket
+  connect: (eventName: 'connect', listener: () => void) => Socket
+  error: (eventName: 'error', listener: (err: Error) => void) => Socket
+  listening: (eventName: 'listening', listener: () => void) => Socket
+  message: (eventName: 'message', listener: (msg: Buffer, rinfo: RemoteInfo) => void) => Socket
 }

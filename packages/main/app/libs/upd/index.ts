@@ -55,8 +55,8 @@ export class Udp {
     this.socket.close()
   }
 
-  on = <E extends keyof EventHandlers>(event: E, listener: EventHandlers[E]): Socket => {
-    return this.socket.on(event, listener)
+  on = <E extends keyof EventHandlers>(eventName: E, listener: EventHandlers[E]): Socket => {
+    return this.socket.on(eventName, listener)
   }
 
   private onTimeout = (): void => {

@@ -8,15 +8,15 @@ type MainEventsReturns = import('@shared/types/event-manager/main/events/index')
 declare namespace NodeJS {
   interface Global {
     addEvent: <E extends keyof RendererEvents>(
-      event: E,
+      eventName: E,
       handler: (payload?: RendererEventsPayload[E]) => any
     ) => void
     invokeMain: <E extends keyof MainEvents>(
-      event: E,
+      eventName: E,
       payload?: MainEventsPayload[E]
     ) => Promise<[null | MainEventsReturns[E], string | null]>
     invokeMainUnilaterally: <E extends keyof MainEvents>(
-      event: E,
+      eventName: E,
       payload?: MainEventsPayload[E]
     ) => void
   }
