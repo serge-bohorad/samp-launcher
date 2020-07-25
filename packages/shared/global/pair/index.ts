@@ -2,7 +2,7 @@ import uid from 'uid'
 
 class PairObject implements PairConstructor {
   create = <T>(value: T): Pair<T> => {
-    return { id: uid(8), value }
+    return { id: uid(6), value }
   }
 
   delete = <T>(pairs: Pair<T>[], targetPair: Pair<T>): Pair<T>[] => {
@@ -14,7 +14,7 @@ class PairObject implements PairConstructor {
     const length = arrayLike.length || 0
 
     for (let i = 0; i < length; i++) {
-      arr.push({ id: uid(8), value: arrayLike[i] })
+      arr.push(this.create(arrayLike[i]))
     }
 
     return arr
