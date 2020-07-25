@@ -10,30 +10,42 @@ class Logger implements LoggerConstructor {
     }
   }
 
-  info = (data): Promise<void> => {
-    return this.log('INFO', data)
+  info = (data): void => {
+    this.log('INFO', data)
   }
 
-  warning = (data): Promise<void> => {
-    return this.log('WARNING', data)
+  warning = (data): void => {
+    this.log('WARNING', data)
   }
 
-  error = (error: Error): Promise<void> => {
-    return this.log('ERROR', error.stack)
+  error = (data): void => {
+    this.log('ERROR', data)
   }
 
-  debug = (data): Promise<void> => {
-    return this.log('DEBUG', data)
+  runtimeError = ({ stack, message }: Error): void => {
+    this.log('RUNTIME ERROR', stack || message)
   }
 
-  private log = (type: string, data: any): Promise<void> => {
-    const newEntry = this.generateEntry(type, data)
-
-    if (DEVELOPMENT) {
-      console.log(newEntry)
+  debug = (data): void => {
+    if (!DEVELOPMENT) {
+      return
     }
 
-    return fs.promises.appendFile(logFilePath, newEntry)
+    this.log('DEBUG', data)
+  }
+
+  private log = (type: string, data: any): void => {
+    const entry = this.generateEntry(type, data)
+
+    if (DEVELOPMENT) {
+      console.log(entry)
+    }
+
+    fs.appendFile(logFilePath, entry, (error) => {
+      if (error) {
+        console.log(error)
+      }
+    })
   }
 
   private generateEntry = (type: string, data): string => {

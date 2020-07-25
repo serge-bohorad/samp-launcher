@@ -20,7 +20,7 @@ export namespace Server {
 
       return [address, null]
     } catch (error) {
-      await Logger.error(new Error(error.stack))
+      Logger.error(errorFailedPing)
 
       return [null, errorFailedPing]
     }

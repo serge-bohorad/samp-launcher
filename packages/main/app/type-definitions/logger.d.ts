@@ -1,6 +1,7 @@
 interface LoggerConstructor {
-  info: (data) => Promise<void>
-  warning: (data) => Promise<void>
-  error: (error: Error) => Promise<void>
-  debug: (data) => Promise<void>
+  info: (data) => void
+  warning: (data) => void
+  error: (data: string) => void
+  runtimeError: (error: Error) => void
+  debug: (data) => void
 }

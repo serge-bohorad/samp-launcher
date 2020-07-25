@@ -28,7 +28,7 @@ export namespace EventManager {
 
         return result || [null, null]
       } catch (error) {
-        Logger.error(error)
+        Logger.runtimeError(error)
 
         return [null, 'Runtime error has occurred']
       }
@@ -45,9 +45,9 @@ export namespace EventManager {
           return Logger.warning(`Handler for "${eventName}" not found`)
         }
 
-        handler(payload)
+        await handler(payload)
       } catch (error) {
-        Logger.error(error)
+        Logger.runtimeError(error)
       }
     }
   )
