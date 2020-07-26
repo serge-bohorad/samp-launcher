@@ -25,20 +25,16 @@ const ManageGroupDialogComponent: FunctionComponent = () => {
 
   return (
     <Dialog
-      className={cn(styles.container, { [styles.filled]: !groups.isEmpty() })}
+      className={cn(styles.container, { [styles.filled]: groups.length })}
       bodyClassName={styles.body}
       caption="Manage groups"
-      concave={groups.isEmpty()}
+      concave={!groups.length}
       closable={closable}
       firstButtonText="Close"
       onClickClose={onClickClose}
       onClickFirstButton={onClickClose}
     >
-      {!groups.isEmpty() ? (
-        <GroupList />
-      ) : (
-        <div className={styles.hintEmpty}>No existing groups</div>
-      )}
+      {groups.length ? <GroupList /> : <div className={styles.hintEmpty}>No existing groups</div>}
     </Dialog>
   )
 }

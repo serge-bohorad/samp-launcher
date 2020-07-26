@@ -1,6 +1,6 @@
 import uid from 'uid'
 
-class PairObject implements PairConstructor {
+class PairClass implements PairConstructor {
   create = <T>(value: T): Pair<T> => {
     return { id: uid(6), value }
   }
@@ -29,4 +29,4 @@ class PairObject implements PairConstructor {
   }
 }
 
-global.Pair = new PairObject()
+global.Pair = new PairClass()

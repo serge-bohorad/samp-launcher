@@ -19,7 +19,7 @@ const NotificationBoxComponent: FunctionComponent = () => {
 
   return (
     <>
-      {!notifications.isEmpty() && (
+      {!!notifications.length && (
         <div className={styles.container}>
           <IconButton
             className={styles.buttonClear}

@@ -76,7 +76,7 @@ export class ServerStore {
   @action addServer = (server: Server): void => {
     this.servers.push(server)
 
-    this.setSelectedServer(this.servers.last())
+    this.setSelectedServer(ExArray.getLast(this.servers))
   }
 
   @action deleteServer = (server: Server): void => {
@@ -158,7 +158,7 @@ export class ServerStore {
 
   filterServersByName = (): Server[] => {
     return this.servers.filter(({ name, hostname }) =>
-      (name || hostname)?.contains(this.serverFilter)
+      ExString.contains(name || hostname!, this.serverFilter)
     )
   }
 

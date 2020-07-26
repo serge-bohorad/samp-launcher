@@ -44,7 +44,7 @@ export const ManageExtraInjectDialog: FunctionComponent<Props> = (props) => {
   }, [extraInject])
 
   const onClickClear = useCallback(() => {
-    if (extraInject.isEmpty()) {
+    if (!extraInject.length) {
       return
     }
 

@@ -44,7 +44,7 @@ export class GroupStore {
   @action addGroup = (group: Group): void => {
     this.groups.push(group)
 
-    this.setSelectedGroup(this.groups.last())
+    this.setSelectedGroup(ExArray.getLast(this.groups))
   }
 
   @action deleteGroup = (targetGroup: Group): void => {

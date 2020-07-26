@@ -35,5 +35,3 @@ interface PairConstructor {
    */
   values<T>(pairs: Pair<T>[]): T[]
 }
-
-declare const Pair: PairConstructor

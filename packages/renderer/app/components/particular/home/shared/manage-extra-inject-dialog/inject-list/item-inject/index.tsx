@@ -18,7 +18,7 @@ export const ItemInject: FunctionComponent<Props> = (props) => {
     onClickDelete(pair)
   }, [pair, onClickDelete])
 
-  const Icon = pair.value.contains('.dll') || pair.value.contains('.asi') ? IconFile : IconFolder
+  const Icon = pair.value.includes('.dll') || pair.value.includes('.asi') ? IconFile : IconFolder
 
   return (
     <div className={cn(styles.container, className)}>

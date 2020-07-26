@@ -14,7 +14,7 @@ export class MiscStore {
     this.notifications.push(Pair.create(notification))
 
     if (displayTime > 0) {
-      const targetNotification = this.notifications.last()!
+      const targetNotification = ExArray.getLast(this.notifications)!
 
       setTimeout(() => this.deleteNotification(targetNotification), displayTime)
     }

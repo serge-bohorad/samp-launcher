@@ -28,7 +28,7 @@ export function onSaveCommonNickname(newNickname: string): void {
 }
 
 export async function onSaveGameDirectory(newGameDirectory: string): Promise<string | void> {
-  if (getGameDirectory().equal(newGameDirectory)) {
+  if (getGameDirectory() === newGameDirectory) {
     return
   }
 
@@ -54,7 +54,7 @@ export function onSaveDeletionConfirm(newState: boolean): void {
 }
 
 export function onSaveServerRefreshDelay(newDelay: number): string | void {
-  if (getServerRefreshDelay().equal(newDelay)) {
+  if (getServerRefreshDelay() === newDelay) {
     return
   }
 

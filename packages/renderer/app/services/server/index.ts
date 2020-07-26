@@ -94,7 +94,7 @@ export async function onSaveServerAddress(
   newAddress: string,
   targetServer = getSelectedServer()
 ): Promise<string | void> {
-  if (!targetServer || getServerAddress(targetServer).equal(newAddress)) {
+  if (!targetServer || getServerAddress(targetServer) === newAddress) {
     return
   }
 
@@ -121,7 +121,7 @@ export function onSaveServerName(
   newName: string,
   targetServer = getSelectedServer()
 ): string | void {
-  if (!targetServer || targetServer.name.equal(newName)) {
+  if (!targetServer || targetServer.name === newName) {
     return
   }
 
@@ -134,7 +134,7 @@ export function onSaveServerDescription(
   newDescription: string,
   targetServer = getSelectedServer()
 ): string | void {
-  if (!targetServer || targetServer.description.equal(newDescription)) {
+  if (!targetServer || targetServer.description === newDescription) {
     return
   }
 
@@ -193,7 +193,7 @@ export function onSaveServerPassword(
   newPassword: string,
   targetServer = getSelectedServer()
 ): void {
-  if (!targetServer || targetServer.password.equal(newPassword)) {
+  if (!targetServer || targetServer.password === newPassword) {
     return
   }
 
@@ -223,7 +223,7 @@ export async function onConnectToServer(
   } = targetServer
   const nickname = usingCommonNickname ? commonNickname : serverNickname
 
-  const extraInject = serverExtraInject.isEmpty() ? commonExtraInject : serverExtraInject
+  const extraInject = serverExtraInject.length ? serverExtraInject : commonExtraInject
   const finalExtraInject = Pair.values(extraInject as Pair<string>[])
 
   const [, error] = await invokeMain('GAME_RUN', {

@@ -18,7 +18,7 @@ import {
 export async function onFetchGroups(): Promise<void> {
   const [groups] = await invokeMain('GROUP_FETCH')
 
-  if (groups!.isEmpty()) {
+  if (!groups!.length) {
     return
   }
 
@@ -64,7 +64,7 @@ export async function onRenameGroup(
   newGroupName: string,
   targetGroup = getSelectedGroup()
 ): Promise<string | void> {
-  if (!targetGroup || targetGroup.name.equal(newGroupName)) {
+  if (!targetGroup || targetGroup.name === newGroupName) {
     return
   }
 
