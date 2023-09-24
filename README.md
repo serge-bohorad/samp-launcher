@@ -1,6 +1,6 @@
 # SA:MP launcher
 
-Unofficial [Grand Theft Auto: San Andreas](https://en.wikipedia.org/wiki/Grand_Theft_Auto:_San_Andreas) Multiplayer launcher. More screenshots can be found [here](screenshots);
+Unofficial [Grand Theft Auto: San Andreas Multiplayer](https://www.sa-mp.com/) launcher. More screenshots can be found [here](screenshots);
 
 ![Launcher main view](/screenshots/main.png)
 
@@ -8,24 +8,22 @@ Unofficial [Grand Theft Auto: San Andreas](https://en.wikipedia.org/wiki/Grand_T
 
 ### Groups
 
-Group is a container of servers.
+A group serves as a container for game servers. Using groups allows you to conveniently organize game servers.
 
-- Changing a name;
-- Any number of servers;
+- Each group has a name and a description, which you can change at any time;
+- A group can contain any number of game servers;
 
 ### Servers
 
-- Adding only to a specific group;
-- Setting a nickname for all or specific servers;
-- Adding a description;
-- Adding binary files for injection into the game process for all or specific servers;
-- Cloning an existing server;
-- Editing an address;
-- Copying a server information to share;
-- Refreshing an information of all or a selected server;
-- Changing a delay before refreshing server information;
-- Search for an added server by name;
-- Sorting by name, number of players, ping, mode, language and map;
+- Initially, you use a global nickname for all servers, but you can also assign a local name to a specific server, which will be used instead of the global one when connecting to that server;
+- You can incorporate various files that modify the game, for both all servers and specific ones;
+- You can easily change the server address if it ever changes, so you won't have to re-enter server information (like custom name or description, local nickname, etc.) from scratch;
+- You can clone an already added server to make any changes (set a local nickname for the server, add the incorporation of specific game modification files, etc.).
+- You can set up a mode for continuous server information updates. You can activate a mode where information for all servers in the active group will be refreshed. You can also specify the delay between receiving server information;
+- You can search for servers by name;
+- You can sort servers by name, ping, number of players, etc;
+- Each server has an official name, but you can set your own name for the server;
+- You can add a specific description to the server;
 
 ## Installation
 
