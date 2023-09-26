@@ -1,6 +1,10 @@
 # SA:MP launcher
 
-Unofficial [Grand Theft Auto: San Andreas Multiplayer](https://www.sa-mp.com/) launcher. More screenshots can be found [here](screenshots);
+Unofficial [Grand Theft Auto: San Andreas Multiplayer](https://www.sa-mp.com/) launcher.
+
+> Check out **[Video Demonstration](https://www.youtube.com/watch?v=-ykdDfwlLZ8)**
+
+> Check out all **[Screenshots](screenshots)**
 
 ![Launcher main view](/screenshots/main.png)
 
